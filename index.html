@@ -64,6 +64,11 @@
     font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
     color:rgba(255,255,255,0.85);
   }
+  .title-row{ display:flex; align-items:center; gap:12px; }
+  .league-logo{
+    width:44px; height:44px; border-radius:10px; object-fit:cover; flex:0 0 auto;
+    background:rgba(255,255,255,0.14); box-shadow:0 2px 10px rgba(0,0,0,0.25);
+  }
   h1{
     font-family:'Barlow Condensed', sans-serif;
     font-weight:800;
@@ -122,6 +127,19 @@
   .upcoming-row:last-child{border-bottom:none;}
   .upcoming-row .gw{font-weight:600; color:#fff;}
   .upcoming-row .dl{ font-family:'IBM Plex Mono', monospace; color:var(--text-muted); font-size:12.5px; }
+
+  .pick-team-btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    align-self:center;
+    background:linear-gradient(100deg, var(--cyan), var(--violet));
+    color:#12002B; font-weight:700; font-size:14.5px;
+    text-decoration:none; padding:12px 26px; border-radius:100px;
+    box-shadow:0 6px 18px -6px rgba(4,245,255,0.45);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .pick-team-btn:hover{ transform:translateY(-1px); box-shadow:0 8px 22px -6px rgba(4,245,255,0.6); }
+  .pick-team-btn:focus-visible{ outline:2px solid #fff; outline-offset:3px; }
+  .pick-team-btn svg{ width:16px; height:16px; flex:0 0 auto; }
 
   /* month filter strip */
   .month-scroll{ overflow-x:auto; margin:0 -20px; padding:4px 20px 10px; }
@@ -182,6 +200,38 @@
   footer a{text-decoration:underline; text-underline-offset:2px; color:var(--text-muted);}
 
   @media (prefers-reduced-motion: reduce){ .month-card{transition:none;} }
+
+  /* ---- mobile: turn tables into stacked cards instead of a side-scroller ---- */
+  @media (max-width: 700px){
+    .table-scroll{ overflow-x:visible; }
+    table{ min-width:0; width:100%; }
+    thead{ display:none; }
+    tbody{ display:flex; flex-direction:column; gap:10px; }
+    tbody tr{
+      display:flex; flex-wrap:wrap; align-items:baseline; column-gap:12px; row-gap:6px;
+      background:var(--bg-alt); border:1px solid var(--border-soft); border-radius:12px;
+      padding:13px 14px;
+    }
+    tbody tr td{ border-bottom:none; padding:0; }
+    tbody tr.winner{ background:linear-gradient(135deg, rgba(255,201,74,0.14), rgba(255,201,74,0.03)); border-color:rgba(255,201,74,0.4); }
+
+    td[data-label]{ display:flex; flex-direction:column; gap:2px; }
+    td[data-label]::before{
+      content:attr(data-label); font-size:9.5px; font-weight:700; letter-spacing:0.07em;
+      text-transform:uppercase; color:var(--text-dim);
+    }
+
+    .rank-cell{ order:1; flex:0 0 auto; }
+    .rank-cell .crown{ margin-right:2px; }
+    .team-cell{ order:2; flex:1 1 140px; min-width:0; }
+    .num-cell{ order:3; flex:0 0 auto; text-align:right; font-size:18px; }
+    .season-rank-cell{
+      order:4; flex-basis:100%; flex-direction:row !important; align-items:center; gap:6px;
+      padding-top:8px !important; margin-top:2px; border-top:1px dashed var(--border-soft);
+    }
+    .season-rank-cell::before{ margin-bottom:0; margin-right:6px; }
+    .gw-cell{ order:5; flex-basis:100%; padding-top:8px !important; margin-top:2px; border-top:1px dashed var(--border-soft); white-space:normal; word-spacing:2px; }
+  }
 </style>
 </head>
 <body>
@@ -191,7 +241,10 @@
   <div class="hero">
     <div class="hero-left">
       <span class="eyebrow">Liga hadiah bulanan &middot; FPL 2026/27</span>
-      <h1 id="league-name">Memuat&hellip;</h1>
+      <div class="title-row">
+        <img class="league-logo" src="https://cdn.phototourl.com/member/2026-08-24-101d351b-0894-4186-b3a5-e23e816a2311.png" alt="Logo Fosionz League" loading="lazy">
+        <h1 id="league-name">Memuat&hellip;</h1>
+      </div>
       <p class="subtitle">Poin gameweek dikelompokkan per bulan &mdash; poin tertinggi tiap bulan berhak atas hadiah.</p>
     </div>
     <div class="meta">
@@ -219,6 +272,10 @@
         <div class="upcoming-title">Deadline berikutnya</div>
         <div id="upcoming-rows"></div>
       </div>
+      <a class="pick-team-btn" href="https://fantasy.premierleague.com/en/my-team" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        Pick Team
+      </a>
     </div>
   </section>
 
@@ -440,11 +497,11 @@
       var isWinner = status === 'done' && i === 0;
       if(isWinner) tr.className = 'winner';
       tr.innerHTML =
-        '<td class="rank-cell">'+(isWinner ? '<span class="crown">🏆</span>' : '')+(i+1)+'</td>'+
-        '<td class="team-cell"><span class="team-name">'+r.team+'</span><span class="manager-name">'+r.manager+'</span></td>'+
-        '<td class="gw-cell">'+fmtBreakdown(r.breakdown)+'</td>'+
-        '<td class="num-cell">'+r.total+'</td>'+
-        '<td class="season-rank-cell">'+rankBadge(r.seasonRank)+'</td>';
+        '<td class="rank-cell" data-label="Pos. Bulan">'+(isWinner ? '<span class="crown">🏆</span>' : '')+(i+1)+'</td>'+
+        '<td class="team-cell">'+(isWinner ? '<span class="chip done" style="margin-bottom:3px;">Juara Bulan Ini</span>' : '')+'<span class="team-name">'+r.team+'</span><span class="manager-name">'+r.manager+'</span></td>'+
+        '<td class="gw-cell" data-label="Rincian GW">'+fmtBreakdown(r.breakdown)+'</td>'+
+        '<td class="num-cell" data-label="Poin Bulan">'+r.total+'</td>'+
+        '<td class="season-rank-cell" data-label="Pos. Keseluruhan">'+rankBadge(r.seasonRank)+'</td>';
       body.appendChild(tr);
     });
   }
@@ -461,7 +518,7 @@
   var seasonBody = document.getElementById('season-body');
   seasonRows.forEach(function(r, i){
     var tr = document.createElement('tr');
-    tr.innerHTML = '<td class="rank-cell">'+(i+1)+'</td><td class="team-cell"><span class="team-name">'+r.team+'</span><span class="manager-name">'+r.manager+'</span></td><td class="num-cell">'+r.total+'</td>';
+    tr.innerHTML = '<td class="rank-cell" data-label="Pos.">'+(i+1)+'</td><td class="team-cell"><span class="team-name">'+r.team+'</span><span class="manager-name">'+r.manager+'</span></td><td class="num-cell" data-label="Total Poin">'+r.total+'</td>';
     seasonBody.appendChild(tr);
   });
 
