@@ -3,7 +3,7 @@
     "id": 754072,
     "name": "Fosionz League",
     "season": "2026/27",
-    "lastUpdated": "2026-08-24T22:50:57.050Z"
+    "lastUpdated": "2026-08-24T23:15:29.021Z"
   },
   "events": [
     {
@@ -163,14 +163,14 @@
   "playedEvents": [],
   "managers": [
     {
-      "entry": 3257881,
-      "team": "Title Rice",
-      "manager": "Shidiq Muhammad"
-    },
-    {
       "entry": 238148,
       "team": "Jangan dilihat",
       "manager": "faris azim"
+    },
+    {
+      "entry": 3257881,
+      "team": "Title Rice",
+      "manager": "Shidiq Muhammad"
     },
     {
       "entry": 85270,
@@ -188,14 +188,14 @@
       "manager": "Aep Muhaemin"
     },
     {
-      "entry": 4656762,
-      "team": "MAMPRANK FC",
-      "manager": "Zaidan Izzatulhaq Aljundi"
-    },
-    {
       "entry": 3625306,
       "team": "FC Kranji City",
       "manager": "Fahrul Putra"
+    },
+    {
+      "entry": 4656762,
+      "team": "MAMPRANK FC",
+      "manager": "Zaidan Izzatulhaq Aljundi"
     },
     {
       "entry": 46579,
