@@ -3,7 +3,7 @@
     "id": 754072,
     "name": "Fosionz League",
     "season": "2026/27",
-    "lastUpdated": "2026-08-24T18:22:33.685Z"
+    "lastUpdated": "2026-08-24T22:50:57.050Z"
   },
   "events": [
     {
@@ -163,24 +163,24 @@
   "playedEvents": [],
   "managers": [
     {
-      "entry": 85270,
-      "team": "POWER DANGER FC",
-      "manager": "Kas Hartadi"
-    },
-    {
       "entry": 3257881,
       "team": "Title Rice",
       "manager": "Shidiq Muhammad"
     },
     {
-      "entry": 83181,
-      "team": "FPL Modal Firasat",
-      "manager": "Hassan Musthafa"
-    },
-    {
       "entry": 238148,
       "team": "Jangan dilihat",
       "manager": "faris azim"
+    },
+    {
+      "entry": 85270,
+      "team": "POWER DANGER FC",
+      "manager": "Kas Hartadi"
+    },
+    {
+      "entry": 83181,
+      "team": "FPL Modal Firasat",
+      "manager": "Hassan Musthafa"
     },
     {
       "entry": 1838776,
@@ -203,11 +203,6 @@
       "manager": "babar bener"
     },
     {
-      "entry": 3623791,
-      "team": "Metropolitan United",
-      "manager": "Shiba Inu"
-    },
-    {
       "entry": 117245,
       "team": "PUNDIDUDEDOT",
       "manager": "Hanif Kasyfillah"
@@ -218,9 +213,29 @@
       "manager": "Muhammad Tsaqif Fikry"
     },
     {
+      "entry": 3623791,
+      "team": "Metropolitan United",
+      "manager": "Shiba Inu"
+    },
+    {
+      "entry": 132302,
+      "team": "Levene Square",
+      "manager": "Levene Square"
+    },
+    {
       "entry": 3633224,
       "team": "Pakuwon FC",
       "manager": "Jordan Nathaniel Ford"
+    },
+    {
+      "entry": 3623417,
+      "team": "Kasreng Beu",
+      "manager": "Syu'bah Ishmatullah"
+    },
+    {
+      "entry": 3204276,
+      "team": "La Fee Verte FC",
+      "manager": "Akid Abdussalam"
     },
     {
       "entry": 2463125,
@@ -233,80 +248,65 @@
       "manager": "Multazim Alhaq"
     },
     {
-      "entry": 132302,
-      "team": "Levene Square",
-      "manager": "Levene Square"
-    },
-    {
-      "entry": 3204276,
-      "team": "La Fee Verte FC",
-      "manager": "Akid Abdussalam"
-    },
-    {
       "entry": 3631190,
       "team": "Antek Antek Asing",
       "manager": "Muhamamd Miqdad AlFarisy"
-    },
-    {
-      "entry": 3623417,
-      "team": "Kasreng Beu",
-      "manager": "Syu'bah Ishmatullah"
     }
   ],
   "points": {
     "46579": {
-      "1": 39
-    },
-    "83181": {
-      "1": 43
-    },
-    "85270": {
       "1": 50
     },
+    "83181": {
+      "1": 56
+    },
+    "85270": {
+      "1": 61
+    },
     "117245": {
-      "1": 34
+      "1": 46
     },
     "132302": {
-      "1": 31
+      "1": 42
     },
     "238148": {
-      "1": 44
+      "1": 63
     },
     "1838776": {
-      "1": 43
+      "1": 54
     },
     "2463125": {
       "1": 33
     },
     "3204276": {
-      "1": 29
+      "1": 37
     },
     "3257881": {
-      "1": 46
+      "1": 63
     },
     "3623417": {
-      "1": 25
+      "1": 39
     },
     "3623791": {
-      "1": 36
+      "1": 44
     },
     "3623867": {
       "1": 32
     },
     "3625306": {
-      "1": 40
+      "1": 51
     },
     "3631190": {
       "1": 26
     },
     "3633224": {
-      "1": 33
+      "1": 41
     },
     "4656762": {
-      "1": 40
+      "1": 51
     },
     "6797821": {
-      "1": 34
+      "1": 45
     }
   }
 }
