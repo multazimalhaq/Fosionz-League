@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fosionz League</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚽</text></svg>">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+  :root{
+    --bg:#F4F7F2;
+    --surface:#FFFFFF;
+    --surface-alt:#EAF0E7;
+    --border:#D8E2D4;
+    --text:#16201A;
+    --text-muted:#55665C;
+    --accent:#1E7A4C;
+    --accent-strong:#14562F;
+    --accent-soft:#DCEFE2;
+    --gold:#9A7223;
+    --gold-soft:#F7ECD3;
+    --gold-text:#5B4416;
+    --shadow: 0 1px 2px rgba(20,40,25,0.06), 0 8px 24px -12px rgba(20,40,25,0.18);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0E1512; --surface:#161F1A; --surface-alt:#1D2721; --border:#2A362E;
+      --text:#E8EFE9; --text-muted:#93A69A; --accent:#3ECB82; --accent-strong:#2FA968;
+      --accent-soft:#163326; --gold:#E3B94E; --gold-soft:#33280F; --gold-text:#F0D48A;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0E1512; --surface:#161F1A; --surface-alt:#1D2721; --border:#2A362E;
+    --text:#E8EFE9; --text-muted:#93A69A; --accent:#3ECB82; --accent-strong:#2FA968;
+    --accent-soft:#163326; --gold:#E3B94E; --gold-soft:#33280F; --gold-text:#F0D48A;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:'Public Sans', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing:antialiased; line-height:1.5;
+  }
+  a{color:inherit;}
+  .wrap{ max-width:1080px; margin:0 auto; padding:28px 20px 64px; display:flex; flex-direction:column; gap:28px; }
+
+  .head{ display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; border-bottom:1px solid var(--border); padding-bottom:20px; }
+  .head-left{display:flex; flex-direction:column; gap:6px; min-width:0;}
+  .eyebrow{ font-size:12px; font-weight:600; letter-spacing:0.09em; text-transform:uppercase; color:var(--accent-strong); }
+  h1{ font-family:'Barlow Condensed', sans-serif; font-weight:700; font-size:clamp(32px,5vw,44px); line-height:1.02; margin:0; text-wrap:balance; }
+  .subtitle{ color:var(--text-muted); font-size:14.5px; max-width:56ch; }
+  .meta{ display:flex; flex-direction:column; align-items:flex-end; gap:6px; font-size:12.5px; color:var(--text-muted); text-align:right; white-space:nowrap; }
+  .meta .count{ font-family:'IBM Plex Mono', monospace; color:var(--text); font-size:13px; }
+
+  .section-title{ font-family:'Barlow Condensed', sans-serif; font-weight:600; font-size:22px; letter-spacing:0.01em; margin:0; }
+  .section-head{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  .section-note{ color:var(--text-muted); font-size:13px; }
+
+  .month-scroll{ overflow-x:auto; margin:0 -20px; padding:4px 20px 10px; }
+  .month-strip{ display:flex; gap:10px; width:max-content; }
+  .month-card{
+    all:unset; cursor:pointer; box-sizing:border-box; width:150px; flex:0 0 auto;
+    background:var(--surface); border:1px solid var(--border); border-radius:10px;
+    padding:14px 14px 12px; display:flex; flex-direction:column; gap:8px;
+    transition:border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+  }
+  .month-card:hover{border-color:var(--accent); transform:translateY(-1px);}
+  .month-card:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+  .month-card.active{ border-color:var(--accent); box-shadow:var(--shadow); background:var(--accent-soft); }
+  .month-card .m-label{ font-family:'Barlow Condensed', sans-serif; font-weight:600; font-size:18px; }
+  .chip{ align-self:flex-start; font-size:10.5px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; padding:2px 7px; border-radius:100px; }
+  .chip.live{background:var(--accent-soft); color:var(--accent-strong);}
+  .chip.upcoming{background:var(--surface-alt); color:var(--text-muted);}
+  .chip.done{background:var(--gold-soft); color:var(--gold-text);}
+  .m-leader{font-size:12.5px; color:var(--text-muted); min-height:16px;}
+  .m-leader b{color:var(--text); font-weight:600;}
+  .m-points{ font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:13px; color:var(--accent-strong); }
+
+  .panel{ background:var(--surface); border:1px solid var(--border); border-radius:12px; box-shadow:var(--shadow); overflow:hidden; }
+  .panel-head{ padding:16px 18px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+  .panel-head h2{ font-family:'Barlow Condensed', sans-serif; font-size:22px; font-weight:600; margin:0; }
+  .table-scroll{overflow-x:auto;}
+  table{ width:100%; border-collapse:collapse; font-size:14px; min-width:560px; }
+  thead th{ text-align:left; font-size:11px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-muted); padding:10px 14px; border-bottom:1px solid var(--border); white-space:nowrap; }
+  tbody td{ padding:11px 14px; border-bottom:1px solid var(--border); vertical-align:middle; }
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr.winner{background:var(--gold-soft);}
+  .rank-cell{ font-family:'IBM Plex Mono', monospace; color:var(--text-muted); width:34px; }
+  .rank-cell .crown{margin-right:3px;}
+  .team-cell{display:flex; flex-direction:column; gap:1px;}
+  .team-name{font-weight:600;}
+  .manager-name{font-size:12px; color:var(--text-muted);}
+  .num-cell{ font-family:'IBM Plex Mono', monospace; font-variant-numeric:tabular-nums; text-align:right; font-weight:600; }
+  .gw-cell{ font-family:'IBM Plex Mono', monospace; font-variant-numeric:tabular-nums; color:var(--text-muted); font-size:12.5px; }
+  .empty-state{ padding:40px 18px; text-align:center; color:var(--text-muted); font-size:14px; }
+
+  footer{ border-top:1px solid var(--border); padding-top:16px; font-size:12px; color:var(--text-muted); display:flex; flex-direction:column; gap:4px; }
+  footer a{text-decoration:underline; text-underline-offset:2px;}
+
+  @media (prefers-reduced-motion: reduce){ .month-card{transition:none;} }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="head">
+    <div class="head-left">
+      <span class="eyebrow">Liga hadiah bulanan &middot; FPL 2026/27</span>
+      <h1 id="league-name">Memuat&hellip;</h1>
+      <p class="subtitle">Poin gameweek dikelompokkan per bulan &mdash; poin tertinggi tiap bulan berhak atas hadiah.</p>
+    </div>
+    <div class="meta">
+      <span class="count" id="member-count"></span>
+      <span id="last-updated"></span>
+    </div>
+  </div>
+
+  <section id="content" hidden>
+    <div class="section-head">
+      <h2 class="section-title">Papan bulanan</h2>
+      <span class="section-note">Klik satu bulan untuk lihat rincian</span>
+    </div>
+    <div class="month-scroll">
+      <div class="month-strip" id="month-strip" role="tablist" aria-label="Pilih bulan"></div>
+    </div>
+  </section>
+
+  <section class="panel" id="detail-panel" hidden>
+    <div class="panel-head">
+      <h2 id="detail-title">&mdash;</h2>
+      <span class="section-note" id="detail-sub"></span>
+    </div>
+    <div class="table-scroll">
+      <table id="detail-table">
+        <thead>
+          <tr><th>#</th><th>Tim</th><th>Rincian GW</th><th style="text-align:right">Poin bulan</th></tr>
+        </thead>
+        <tbody id="detail-body"></tbody>
+      </table>
+      <div class="empty-state" id="detail-empty" hidden></div>
+    </div>
+  </section>
+
+  <section class="panel" id="season-panel" hidden>
+    <div class="panel-head">
+      <h2>Klasemen musim</h2>
+      <span class="section-note" id="season-sub"></span>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>#</th><th>Tim</th><th style="text-align:right">Total poin</th></tr></thead>
+        <tbody id="season-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="empty-state" id="load-state">Memuat data liga&hellip;</div>
+
+  <footer id="page-footer" hidden>
+    <span>Data ditarik dari API publik Fantasy Premier League (fantasy.premierleague.com) lewat GitHub Actions terjadwal. Gameweek dikelompokkan ke bulan berdasarkan tanggal deadline gameweek (UTC).</span>
+    <span id="footer-note"></span>
+  </footer>
+
+</div>
+
+<script>
+(async function(){
+  var loadState = document.getElementById('load-state');
+  var data;
+  try {
+    var res = await fetch('./data.json', {cache:'no-store'});
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    data = await res.json();
+  } catch(err){
+    loadState.textContent = 'Gagal memuat data.json (' + err.message + '). Pastikan file ini di-serve dari GitHub Pages, bukan dibuka langsung dari file lokal.';
+    return;
+  }
+  loadState.hidden = true;
+  document.getElementById('content').hidden = false;
+  document.getElementById('detail-panel').hidden = false;
+  document.getElementById('season-panel').hidden = false;
+  document.getElementById('page-footer').hidden = false;
+
+  var LEAGUE = data.league;
+  var EVENTS = data.events;
+  var PLAYED_EVENTS = data.playedEvents || [];
+  var CURRENT_EVENT = data.currentEvent;
+  var MANAGERS = data.managers;
+  var POINTS = data.points;
+
+  document.getElementById('league-name').textContent = LEAGUE.name;
+
+  function monthKey(iso){ var d=new Date(iso); return d.getUTCFullYear()+"-"+String(d.getUTCMonth()+1).padStart(2,"0"); }
+  function monthLabel(iso){ var d=new Date(iso); return d.toLocaleDateString('id-ID',{month:'long',year:'numeric',timeZone:'UTC'}); }
+  function monthLabelShort(iso){ var d=new Date(iso); return d.toLocaleDateString('id-ID',{month:'short',year:'2-digit',timeZone:'UTC'}); }
+
+  var monthsMap = {}; var monthOrder = [];
+  EVENTS.forEach(function(ev){
+    var key = monthKey(ev.deadline);
+    if(!monthsMap[key]){ monthsMap[key] = {key:key, label:monthLabel(ev.deadline), short:monthLabelShort(ev.deadline), events:[]}; monthOrder.push(key); }
+    monthsMap[key].events.push(ev);
+  });
+
+  function eventStatus(ev){
+    if(ev.id === CURRENT_EVENT) return 'live';
+    if(PLAYED_EVENTS.indexOf(ev.id) !== -1) return 'done';
+    return 'upcoming';
+  }
+  function monthStatus(m){
+    var anyLive=false, anyDone=false, anyUpcoming=false;
+    m.events.forEach(function(ev){ var s=eventStatus(ev); if(s==='live') anyLive=true; else if(s==='done') anyDone=true; else anyUpcoming=true; });
+    if(anyLive) return 'live';
+    if(anyDone && !anyUpcoming) return 'done';
+    if(anyDone && anyUpcoming) return 'live';
+    return 'upcoming';
+  }
+  function monthRows(m){
+    var playedIds = m.events.map(function(e){return e.id;}).filter(function(id){ return PLAYED_EVENTS.indexOf(id)!==-1 || id===CURRENT_EVENT; });
+    return MANAGERS.map(function(mg){
+      var total = 0, breakdown = [];
+      m.events.forEach(function(ev){
+        var pts = (POINTS[mg.entry] && POINTS[mg.entry][ev.id] !== undefined) ? POINTS[mg.entry][ev.id] : null;
+        if(pts !== null){ total += pts; }
+        breakdown.push({id:ev.id, points:pts});
+      });
+      return {entry:mg.entry, team:mg.team, manager:mg.manager, total:total, breakdown:breakdown, hasData: playedIds.length>0};
+    }).filter(function(r){ return r.hasData; }).sort(function(a,b){ return b.total - a.total; });
+  }
+
+  var strip = document.getElementById('month-strip');
+  monthOrder.forEach(function(key){
+    var m = monthsMap[key];
+    var status = monthStatus(m);
+    var rows = monthRows(m);
+    var btn = document.createElement('button');
+    btn.className = 'month-card';
+    btn.setAttribute('role','tab');
+    btn.dataset.key = key;
+    var chipClass = status === 'done' ? 'done' : (status === 'live' ? 'live' : 'upcoming');
+    var chipLabel = status === 'done' ? 'Selesai' : (status === 'live' ? 'Berjalan' : 'Belum mulai');
+    var leaderHtml = '<span class="m-leader">Belum ada data</span>';
+    if(rows.length){
+      var leader = rows[0];
+      leaderHtml = '<span class="m-leader"><b>'+leader.team+'</b></span><span class="m-points">'+leader.total+' pts</span>';
+    }
+    btn.innerHTML = '<span class="m-label">'+m.short+'</span><span class="chip '+chipClass+'">'+chipLabel+'</span>'+leaderHtml;
+    btn.addEventListener('click', function(){ selectMonth(key); });
+    strip.appendChild(btn);
+  });
+
+  function fmtBreakdown(breakdown){
+    return breakdown.map(function(b){ return b.points === null ? ('GW'+b.id+':–') : ('GW'+b.id+':'+b.points); }).join('  ');
+  }
+
+  function selectMonth(key){
+    Array.prototype.forEach.call(strip.querySelectorAll('.month-card'), function(el){ el.classList.toggle('active', el.dataset.key === key); });
+    var m = monthsMap[key];
+    var status = monthStatus(m);
+    var rows = monthRows(m);
+    document.getElementById('detail-title').textContent = m.label;
+    document.getElementById('detail-sub').textContent =
+      status === 'done' ? 'Bulan selesai — pemenang hadiah bulan ini' :
+      status === 'live' ? 'Sementara — masih berjalan' : 'Gameweek belum dimulai';
+
+    var body = document.getElementById('detail-body');
+    var empty = document.getElementById('detail-empty');
+    var table = document.getElementById('detail-table');
+    body.innerHTML = '';
+    if(!rows.length){
+      table.style.display = 'none'; empty.hidden = false; empty.textContent = 'Gameweek bulan ini belum dimainkan.'; return;
+    }
+    table.style.display = ''; empty.hidden = true;
+    rows.forEach(function(r, i){
+      var tr = document.createElement('tr');
+      var isWinner = status === 'done' && i === 0;
+      if(isWinner) tr.className = 'winner';
+      tr.innerHTML =
+        '<td class="rank-cell">'+(isWinner ? '<span class="crown">🏆</span>' : '')+(i+1)+'</td>'+
+        '<td class="team-cell"><span class="team-name">'+r.team+'</span><span class="manager-name">'+r.manager+'</span></td>'+
+        '<td class="gw-cell">'+fmtBreakdown(r.breakdown)+'</td>'+
+        '<td class="num-cell">'+r.total+'</td>';
+      body.appendChild(tr);
+    });
+  }
+
+  var defaultKey = null;
+  monthOrder.forEach(function(key){ if(monthStatus(monthsMap[key]) === 'live') defaultKey = key; });
+  if(!defaultKey){ for(var i=monthOrder.length-1;i>=0;i--){ if(monthStatus(monthsMap[monthOrder[i]]) !== 'upcoming'){ defaultKey = monthOrder[i]; break; } } }
+  if(!defaultKey) defaultKey = monthOrder[0];
+  selectMonth(defaultKey);
+  var activeCard = strip.querySelector('.month-card.active');
+  if(activeCard) activeCard.scrollIntoView({inline:'center', block:'nearest'});
+
+  var seasonRows = MANAGERS.map(function(mg){
+    var total = 0;
+    Object.keys(POINTS[mg.entry] || {}).forEach(function(k){ total += POINTS[mg.entry][k]; });
+    return {team:mg.team, manager:mg.manager, total:total};
+  }).sort(function(a,b){ return b.total - a.total; });
+
+  var seasonBody = document.getElementById('season-body');
+  seasonRows.forEach(function(r, i){
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td class="rank-cell">'+(i+1)+'</td><td class="team-cell"><span class="team-name">'+r.team+'</span><span class="manager-name">'+r.manager+'</span></td><td class="num-cell">'+r.total+'</td>';
+    seasonBody.appendChild(tr);
+  });
+
+  var lastPlayedId = PLAYED_EVENTS.concat(CURRENT_EVENT ? [CURRENT_EVENT] : []).sort(function(a,b){return a-b;}).pop();
+  document.getElementById('season-sub').textContent = lastPlayedId ? ('Setelah GW'+lastPlayedId) : '';
+
+  document.getElementById('member-count').textContent = MANAGERS.length + ' manajer';
+  var upd = new Date(LEAGUE.lastUpdated);
+  var updStr = upd.toLocaleString('id-ID',{ day:'numeric', month:'long', year:'numeric', hour:'2-digit', minute:'2-digit', timeZone:'Asia/Jakarta'}) + ' WIB';
+  document.getElementById('last-updated').textContent = 'Diperbarui ' + updStr;
+  document.getElementById('footer-note').textContent = 'Liga: ' + LEAGUE.name + ' · Musim ' + LEAGUE.season + ' · ID ' + LEAGUE.id;
+})();
+</script>
+</body>
+</html>
