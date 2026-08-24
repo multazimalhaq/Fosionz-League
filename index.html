@@ -184,6 +184,10 @@
   .rank-cell{ font-family:'IBM Plex Mono', monospace; color:var(--text-muted); width:34px; }
   .rank-cell .crown{margin-right:3px;}
   .team-cell{display:flex; flex-direction:column; gap:1px;}
+  .team-link{ color:inherit; text-decoration:none; width:fit-content; }
+  .team-link .team-name{ border-bottom:1px dashed transparent; }
+  .team-link:hover .team-name{ color:var(--cyan); border-bottom-color:var(--cyan); }
+  .team-link:focus-visible{ outline:2px solid var(--cyan); outline-offset:2px; border-radius:3px; }
   .team-name{font-weight:600; color:#fff;}
   .manager-name{font-size:12px; color:var(--text-muted);}
   .num-cell{ font-family:'IBM Plex Mono', monospace; font-variant-numeric:tabular-nums; text-align:right; font-weight:600; color:#fff; }
@@ -489,6 +493,27 @@
   var seasonRankByEntry = {};
   seasonRows.forEach(function(r,i){ seasonRankByEntry[r.entry] = i+1; });
 
+  var recordedEventIds = Array.from(new Set(PLAYED_EVENTS.concat(CURRENT_EVENT ? [CURRENT_EVENT] : [])));
+  var lastPlayedId = recordedEventIds.slice().sort(function(a,b){return a-b;}).pop();
+
+  /* squad link: public FPL team page for a manager's picks in a given gameweek.
+     Only viewable once that gameweek's deadline has passed (FPL hides picks before deadline). */
+  function squadUrl(entry, eventId){
+    if(!eventId) return null;
+    return 'https://fantasy.premierleague.com/entry/'+entry+'/event/'+eventId;
+  }
+  function monthLastEvent(m){
+    var ids = m.events.map(function(e){return e.id;}).filter(function(id){ return PLAYED_EVENTS.indexOf(id)!==-1 || id===CURRENT_EVENT; });
+    return ids.length ? Math.max.apply(null, ids) : null;
+  }
+  function teamCellHtml(r, linkEvent, extraBefore){
+    var url = squadUrl(r.entry, linkEvent);
+    var nameHtml = url
+      ? '<a class="team-link" href="'+url+'" target="_blank" rel="noopener" title="Lihat squad GW'+linkEvent+'"><span class="team-name">'+r.team+'</span></a>'
+      : '<span class="team-name">'+r.team+'</span>';
+    return (extraBefore||'') + nameHtml + '<span class="manager-name">'+r.manager+'</span>';
+  }
+
   function monthRows(m){
     var playedIds = m.events.map(function(e){return e.id;}).filter(function(id){ return PLAYED_EVENTS.indexOf(id)!==-1 || id===CURRENT_EVENT; });
     return MANAGERS.map(function(mg){
@@ -539,8 +564,8 @@
     var rows = monthRows(m);
     document.getElementById('detail-title').textContent = m.label;
     document.getElementById('detail-sub').textContent =
-      status === 'done' ? 'Bulan selesai — pemenang hadiah bulan ini' :
-      status === 'live' ? 'Sementara — masih berjalan' : 'Gameweek belum dimulai';
+      status === 'done' ? 'Bulan selesai — pemenang hadiah bulan ini · klik nama tim buat lihat squad' :
+      status === 'live' ? 'Sementara — masih berjalan · klik nama tim buat lihat squad' : 'Gameweek belum dimulai';
 
     var body = document.getElementById('detail-body');
     var empty = document.getElementById('detail-empty');
@@ -550,13 +575,15 @@
       table.style.display = 'none'; empty.hidden = false; empty.textContent = 'Gameweek bulan ini belum dimainkan.'; return;
     }
     table.style.display = ''; empty.hidden = true;
+    var linkEvent = monthLastEvent(m);
     rows.forEach(function(r, i){
       var tr = document.createElement('tr');
       var isWinner = status === 'done' && i === 0;
       if(isWinner) tr.className = 'winner';
+      var winnerChip = isWinner ? '<span class="chip done" style="margin-bottom:3px;">Juara Bulan Ini</span>' : '';
       tr.innerHTML =
         '<td class="rank-cell" data-label="Pos. Bulan">'+(isWinner ? '<span class="crown">🏆</span>' : '')+(i+1)+'</td>'+
-        '<td class="team-cell">'+(isWinner ? '<span class="chip done" style="margin-bottom:3px;">Juara Bulan Ini</span>' : '')+'<span class="team-name">'+r.team+'</span><span class="manager-name">'+r.manager+'</span></td>'+
+        '<td class="team-cell">'+teamCellHtml(r, linkEvent, winnerChip)+'</td>'+
         '<td class="gw-cell" data-label="Rincian GW">'+fmtBreakdown(r.breakdown)+'</td>'+
         '<td class="num-cell" data-label="Poin Bulan">'+r.total+'</td>'+
         '<td class="season-rank-cell" data-label="Pos. Keseluruhan">'+rankBadge(r.seasonRank)+'</td>';
@@ -576,13 +603,11 @@
   var seasonBody = document.getElementById('season-body');
   seasonRows.forEach(function(r, i){
     var tr = document.createElement('tr');
-    tr.innerHTML = '<td class="rank-cell" data-label="Pos.">'+(i+1)+'</td><td class="team-cell"><span class="team-name">'+r.team+'</span><span class="manager-name">'+r.manager+'</span></td><td class="num-cell" data-label="Total Poin">'+r.total+'</td>';
+    tr.innerHTML = '<td class="rank-cell" data-label="Pos.">'+(i+1)+'</td><td class="team-cell">'+teamCellHtml(r, lastPlayedId)+'</td><td class="num-cell" data-label="Total Poin">'+r.total+'</td>';
     seasonBody.appendChild(tr);
   });
 
-  var recordedEventIds = Array.from(new Set(PLAYED_EVENTS.concat(CURRENT_EVENT ? [CURRENT_EVENT] : [])));
-  var lastPlayedId = recordedEventIds.slice().sort(function(a,b){return a-b;}).pop();
-  document.getElementById('season-sub').textContent = lastPlayedId ? ('Setelah GW'+lastPlayedId) : '';
+  document.getElementById('season-sub').textContent = lastPlayedId ? ('Setelah GW'+lastPlayedId+' — klik nama tim buat lihat squad-nya') : '';
 
   /* ---------- highlight card 1: terbanyak rank #1 per gameweek ---------- */
   var gwWinCounts = {};
