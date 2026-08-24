@@ -172,11 +172,19 @@
   .m-leader b{color:#fff; font-weight:600;}
   .m-points{ font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:13px; color:var(--cyan); }
 
-  .table-scroll{overflow-x:auto;}
+  .table-scroll{
+    overflow-x:auto; overflow-y:auto; max-height:660px;
+    scrollbar-width:thin; scrollbar-color:var(--border-soft) transparent;
+  }
+  .table-scroll::-webkit-scrollbar{ width:8px; height:8px; }
+  .table-scroll::-webkit-scrollbar-thumb{ background:var(--border-soft); border-radius:4px; }
+  .table-scroll::-webkit-scrollbar-track{ background:transparent; }
   table{ width:100%; border-collapse:collapse; font-size:14px; min-width:640px; }
+  thead{ position:sticky; top:0; z-index:2; }
   thead th{
     text-align:left; font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
     color:var(--text-dim); padding:10px 14px; border-bottom:1px solid var(--border-soft); white-space:nowrap;
+    background:var(--surface);
   }
   tbody td{ padding:11px 14px; border-bottom:1px solid var(--border-soft); vertical-align:middle; }
   tbody tr:last-child td{border-bottom:none;}
@@ -200,9 +208,11 @@
   .season-rank-cell .arrow-down{color:var(--magenta);}
   .empty-state{ padding:40px 18px; text-align:center; color:var(--text-muted); font-size:14px; }
 
-  /* two-column highlight cards */
-  .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-  @media (max-width:760px){ .two-col{ grid-template-columns:1fr; } }
+  /* highlight card grid */
+  .four-col{ display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; }
+  @media (max-width:980px){ .four-col{ grid-template-columns:repeat(2, 1fr); } }
+  @media (max-width:560px){ .four-col{ grid-template-columns:1fr; } }
+  .highlight-card .panel-head h2{ font-size:17px; }
   .highlight-body{ padding:4px 0; min-height:64px; }
 
   .win-row{ display:flex; align-items:center; gap:12px; padding:11px 20px; border-bottom:1px solid var(--border-soft); }
@@ -297,6 +307,37 @@
     </div>
   </div>
 
+  <section class="four-col" id="highlights-row" hidden>
+    <div class="panel highlight-card">
+      <div class="panel-head">
+        <h2>Poin Tertinggi GW Berjalan</h2>
+        <span class="section-note" id="gw-best-note"></span>
+      </div>
+      <div class="highlight-body" id="gw-best-body"></div>
+    </div>
+    <div class="panel highlight-card">
+      <div class="panel-head">
+        <h2>Manager of the Month</h2>
+        <span class="section-note" id="motm-note"></span>
+      </div>
+      <div class="highlight-body" id="motm-body"></div>
+    </div>
+    <div class="panel highlight-card">
+      <div class="panel-head">
+        <h2>Terbanyak Rank #1 GW</h2>
+        <span class="section-note" id="gw-winners-note"></span>
+      </div>
+      <div class="highlight-body" id="gw-winners-body"></div>
+    </div>
+    <div class="panel highlight-card">
+      <div class="panel-head">
+        <h2>Puncak Klasemen</h2>
+        <span class="section-note" id="season-leader-note"></span>
+      </div>
+      <div class="highlight-body" id="season-leader-body"></div>
+    </div>
+  </section>
+
   <section class="panel" id="deadline-panel" hidden>
     <div class="panel-head">
       <h2>Deadline Berikutnya</h2>
@@ -325,7 +366,7 @@
 
   <section id="content" hidden>
     <div class="section-head">
-      <h2 class="section-title">Filter Bulan</h2>
+      <h2 class="section-title">Manager of the Month</h2>
       <span class="section-note">Bulan berjalan otomatis terpilih &mdash; klik bulan lain buat lihat rincian</span>
     </div>
     <div class="month-scroll">
@@ -346,23 +387,6 @@
         <tbody id="detail-body"></tbody>
       </table>
       <div class="empty-state" id="detail-empty" hidden></div>
-    </div>
-  </section>
-
-  <section class="two-col" id="highlights-row" hidden>
-    <div class="panel highlight-card">
-      <div class="panel-head">
-        <h2>Terbanyak Rank #1 Gameweek</h2>
-        <span class="section-note" id="gw-winners-note"></span>
-      </div>
-      <div class="highlight-body" id="gw-winners-body"></div>
-    </div>
-    <div class="panel highlight-card">
-      <div class="panel-head">
-        <h2>Juara Sementara Musim</h2>
-        <span class="section-note" id="season-leader-note"></span>
-      </div>
-      <div class="highlight-body" id="season-leader-body"></div>
     </div>
   </section>
 
@@ -666,6 +690,70 @@
     }
     html += '</div>';
     seasonLeaderBody.innerHTML = html;
+  }
+
+  /* ---------- highlight card: poin tertinggi gameweek berjalan ---------- */
+  var focusEventId = CURRENT_EVENT || lastPlayedId;
+  document.getElementById('gw-best-note').textContent = focusEventId
+    ? (focusEventId === CURRENT_EVENT ? 'Live — GW'+focusEventId : 'Final — GW'+focusEventId)
+    : '';
+  var gwBestBody = document.getElementById('gw-best-body');
+  if(!focusEventId){
+    gwBestBody.innerHTML = '<div class="empty-state" style="padding:24px 18px;">Gameweek belum dimulai.</div>';
+  } else {
+    var gwRows = MANAGERS.map(function(mg){
+      var pts = POINTS[mg.entry] && POINTS[mg.entry][focusEventId];
+      return {entry:mg.entry, team:mg.team, manager:mg.manager, total: (pts === undefined ? null : pts)};
+    }).filter(function(r){ return r.total !== null; }).sort(function(a,b){ return b.total - a.total; });
+    if(!gwRows.length){
+      gwBestBody.innerHTML = '<div class="empty-state" style="padding:24px 18px;">Belum ada poin GW'+focusEventId+'.</div>';
+    } else {
+      var gwLeader = gwRows[0];
+      var gwRunners = gwRows.slice(1,4);
+      var gwHtml = '<div class="spotlight">'+
+        '<span class="crown-big">⚡</span>'+
+        '<span class="s-team">'+gwLeader.team+'</span>'+
+        '<span class="s-manager">'+gwLeader.manager+'</span>'+
+        '<span class="s-points">'+gwLeader.total+'</span>'+
+        '<span class="s-points-label">Poin GW'+focusEventId+'</span>';
+      if(gwRunners.length){
+        gwHtml += '<div class="runner-ups">';
+        gwRunners.forEach(function(r, idx){
+          gwHtml += '<div class="runner-row"><span>#'+(idx+2)+' <b>'+r.team+'</b></span><span>'+r.total+' pts</span></div>';
+        });
+        gwHtml += '</div>';
+      }
+      gwHtml += '</div>';
+      gwBestBody.innerHTML = gwHtml;
+    }
+  }
+
+  /* ---------- highlight card: manager of the month (bulan berjalan) ---------- */
+  var motmMonth = monthsMap[defaultKey];
+  var motmStatus = monthStatus(motmMonth);
+  var motmRows = monthRows(motmMonth);
+  document.getElementById('motm-note').textContent = motmMonth.label + (motmStatus === 'done' ? ' — final' : motmStatus === 'live' ? ' — sementara' : '');
+  var motmBody = document.getElementById('motm-body');
+  if(!motmRows.length){
+    motmBody.innerHTML = '<div class="empty-state" style="padding:24px 18px;">Gameweek bulan ini belum dimainkan.</div>';
+  } else {
+    var motmLeader = motmRows[0];
+    var motmRunners = motmRows.slice(1,4);
+    var motmHtml = '<div class="spotlight">'+
+      '<span class="crown-big">📅</span>'+
+      '<span class="s-team">'+motmLeader.team+'</span>'+
+      '<span class="s-manager">'+motmLeader.manager+'</span>'+
+      '<span class="s-points">'+motmLeader.total+'</span>'+
+      '<span class="s-points-label">Poin Bulan Ini</span>';
+    if(motmRunners.length){
+      motmHtml += '<div class="runner-ups">';
+      motmRunners.forEach(function(r, idx){
+        motmHtml += '<div class="runner-row"><span>#'+(idx+2)+' <b>'+r.team+'</b></span><span>'+r.total+' pts</span></div>';
+      });
+      motmHtml += '</div>';
+    }
+    motmHtml += '</div>';
+    motmBody.innerHTML = motmHtml;
   }
 
   document.getElementById('member-count').textContent = MANAGERS.length + ' manajer';
