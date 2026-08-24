@@ -2,8 +2,8 @@ name: Update FPL data
 
 on:
   schedule:
-    # Every 6 hours. Edit this cron if you want it more/less frequent.
-    - cron: "0 */6 * * *"
+    # Every 15 minutes. Edit this cron if you want it more/less frequent.
+    - cron: "*/15 * * * *"
   workflow_dispatch: {}
 
 permissions:
