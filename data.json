@@ -3,7 +3,7 @@
     "id": 754072,
     "name": "Fosionz League",
     "season": "2026/27",
-    "lastUpdated": "2026-08-24T07:40:42.517Z"
+    "lastUpdated": "2026-08-24T12:23:00.258Z"
   },
   "events": [
     {
@@ -188,14 +188,14 @@
       "manager": "Aep Muhaemin"
     },
     {
-      "entry": 4656762,
-      "team": "MAMPRANK FC",
-      "manager": "Zaidan Izzatulhaq Aljundi"
-    },
-    {
       "entry": 3625306,
       "team": "FC Kranji City",
       "manager": "Fahrul Putra"
+    },
+    {
+      "entry": 4656762,
+      "team": "MAMPRANK FC",
+      "manager": "Zaidan Izzatulhaq Aljundi"
     },
     {
       "entry": 46579,
@@ -218,14 +218,14 @@
       "manager": "Muhammad Tsaqif Fikry"
     },
     {
-      "entry": 2463125,
-      "team": "New Coral FC",
-      "manager": "Hanzo GM"
-    },
-    {
       "entry": 3633224,
       "team": "Pakuwon FC",
       "manager": "Jordan Nathaniel Ford"
+    },
+    {
+      "entry": 2463125,
+      "team": "New Coral FC",
+      "manager": "Hanzo GM"
     },
     {
       "entry": 3623867,
