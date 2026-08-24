@@ -80,6 +80,9 @@
     text-shadow:0 2px 12px rgba(0,0,0,0.25);
   }
   .subtitle{ color:rgba(255,255,255,0.88); font-size:14.5px; max-width:56ch; }
+  .subtitle-lead{ font-weight:700; color:#fff; }
+  .prize-list{ margin:4px 0 0; padding-left:18px; display:flex; flex-direction:column; gap:2px; font-size:13.5px; }
+  .prize-note{ opacity:0.82; font-size:12.5px; }
   .meta{
     display:flex; flex-direction:column; align-items:flex-end; gap:6px;
     font-size:12.5px; color:rgba(255,255,255,0.85); text-align:right; white-space:nowrap; position:relative;
@@ -193,6 +196,36 @@
   .season-rank-cell .arrow-down{color:var(--magenta);}
   .empty-state{ padding:40px 18px; text-align:center; color:var(--text-muted); font-size:14px; }
 
+  /* two-column highlight cards */
+  .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:760px){ .two-col{ grid-template-columns:1fr; } }
+  .highlight-body{ padding:4px 0; min-height:64px; }
+
+  .win-row{ display:flex; align-items:center; gap:12px; padding:11px 20px; border-bottom:1px solid var(--border-soft); }
+  .win-row:last-child{ border-bottom:none; }
+  .win-rank{ font-family:'IBM Plex Mono', monospace; color:var(--text-dim); width:16px; font-size:13px; }
+  .win-team{ flex:1; min-width:0; display:flex; flex-direction:column; gap:1px; }
+  .win-team .team-name{ font-weight:600; color:#fff; font-size:13.5px; }
+  .win-team .manager-name{ font-size:11.5px; color:var(--text-muted); }
+  .win-count{
+    font-family:'IBM Plex Mono', monospace; font-weight:700; color:var(--cyan); font-size:13.5px;
+    background:rgba(4,245,255,0.14); padding:3px 11px; border-radius:100px; white-space:nowrap;
+  }
+
+  .spotlight{ display:flex; flex-direction:column; align-items:center; gap:4px; padding:22px 20px 20px; text-align:center; }
+  .spotlight .crown-big{ font-size:32px; line-height:1; }
+  .spotlight .s-team{ font-family:'Barlow Condensed', sans-serif; font-weight:700; font-size:23px; color:#fff; text-wrap:balance; }
+  .spotlight .s-manager{ font-size:12.5px; color:var(--text-muted); }
+  .spotlight .s-points{ font-family:'IBM Plex Mono', monospace; font-size:26px; font-weight:600; color:var(--gold); margin-top:6px; line-height:1; }
+  .spotlight .s-points-label{ font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-dim); margin-top:2px; }
+  .runner-ups{ margin-top:14px; width:100%; border-top:1px solid var(--border-soft); }
+  .runner-row{
+    display:flex; justify-content:space-between; padding:8px 4px; font-size:12px;
+    border-bottom:1px solid var(--border-soft); color:var(--text-muted);
+  }
+  .runner-row:last-child{ border-bottom:none; }
+  .runner-row b{ color:#fff; font-weight:600; }
+
   footer{
     border-top:1px solid var(--border-soft); padding-top:16px; font-size:12px; color:var(--text-dim);
     display:flex; flex-direction:column; gap:4px;
@@ -240,12 +273,19 @@
 
   <div class="hero">
     <div class="hero-left">
-      <span class="eyebrow">Liga hadiah bulanan &middot; FPL 2026/27</span>
+      <span class="eyebrow">Fantasy Premier League 2026/2027</span>
       <div class="title-row">
         <img class="league-logo" src="https://cdn.phototourl.com/member/2026-08-24-101d351b-0894-4186-b3a5-e23e816a2311.png" alt="Logo Fosionz League" loading="lazy">
         <h1 id="league-name">Memuat&hellip;</h1>
       </div>
-      <p class="subtitle">Poin gameweek dikelompokkan per bulan &mdash; poin tertinggi tiap bulan berhak atas hadiah.</p>
+      <div class="subtitle">
+        <span class="subtitle-lead">Memperebutkan:</span>
+        <ol class="prize-list">
+          <li>Poin Tertinggi Tiap Bulan <span class="prize-note">(Manager of the Month)</span></li>
+          <li>Terbanyak Rank #1 di tiap Gameweek</li>
+          <li>Rank #1 Akhir Musim <span class="prize-note">(Juara 2026/2027)</span></li>
+        </ol>
+      </div>
     </div>
     <div class="meta">
       <span class="count" id="member-count"></span>
@@ -305,6 +345,23 @@
     </div>
   </section>
 
+  <section class="two-col" id="highlights-row" hidden>
+    <div class="panel highlight-card">
+      <div class="panel-head">
+        <h2>Terbanyak Rank #1 Gameweek</h2>
+        <span class="section-note" id="gw-winners-note"></span>
+      </div>
+      <div class="highlight-body" id="gw-winners-body"></div>
+    </div>
+    <div class="panel highlight-card">
+      <div class="panel-head">
+        <h2>Juara Sementara Musim</h2>
+        <span class="section-note" id="season-leader-note"></span>
+      </div>
+      <div class="highlight-body" id="season-leader-body"></div>
+    </div>
+  </section>
+
   <section class="panel" id="season-panel" hidden>
     <div class="panel-head">
       <h2>Klasemen Musim (Posisi Keseluruhan)</h2>
@@ -343,6 +400,7 @@
   document.getElementById('deadline-panel').hidden = false;
   document.getElementById('content').hidden = false;
   document.getElementById('detail-panel').hidden = false;
+  document.getElementById('highlights-row').hidden = false;
   document.getElementById('season-panel').hidden = false;
   document.getElementById('page-footer').hidden = false;
 
@@ -522,8 +580,68 @@
     seasonBody.appendChild(tr);
   });
 
-  var lastPlayedId = PLAYED_EVENTS.concat(CURRENT_EVENT ? [CURRENT_EVENT] : []).sort(function(a,b){return a-b;}).pop();
+  var recordedEventIds = Array.from(new Set(PLAYED_EVENTS.concat(CURRENT_EVENT ? [CURRENT_EVENT] : [])));
+  var lastPlayedId = recordedEventIds.slice().sort(function(a,b){return a-b;}).pop();
   document.getElementById('season-sub').textContent = lastPlayedId ? ('Setelah GW'+lastPlayedId) : '';
+
+  /* ---------- highlight card 1: terbanyak rank #1 per gameweek ---------- */
+  var gwWinCounts = {};
+  recordedEventIds.forEach(function(eid){
+    var maxPts = null;
+    MANAGERS.forEach(function(mg){
+      var p = POINTS[mg.entry] && POINTS[mg.entry][eid];
+      if(p !== undefined && (maxPts === null || p > maxPts)) maxPts = p;
+    });
+    if(maxPts === null) return;
+    MANAGERS.forEach(function(mg){
+      var p = POINTS[mg.entry] && POINTS[mg.entry][eid];
+      if(p === maxPts){ gwWinCounts[mg.entry] = (gwWinCounts[mg.entry] || 0) + 1; }
+    });
+  });
+  var gwWinRows = MANAGERS.map(function(mg){
+    return {entry:mg.entry, team:mg.team, manager:mg.manager, count: gwWinCounts[mg.entry] || 0};
+  }).filter(function(r){ return r.count > 0; }).sort(function(a,b){ return b.count - a.count; });
+
+  document.getElementById('gw-winners-note').textContent = lastPlayedId ? ('Setelah GW'+lastPlayedId) : '';
+  var gwWinsBody = document.getElementById('gw-winners-body');
+  if(!gwWinRows.length){
+    gwWinsBody.innerHTML = '<div class="empty-state" style="padding:24px 18px;">Belum ada gameweek yang selesai.</div>';
+  } else {
+    gwWinRows.slice(0,6).forEach(function(r, i){
+      var row = document.createElement('div');
+      row.className = 'win-row';
+      row.innerHTML =
+        '<span class="win-rank">'+(i+1)+'</span>'+
+        '<span class="win-team"><span class="team-name">'+r.team+'</span><span class="manager-name">'+r.manager+'</span></span>'+
+        '<span class="win-count">'+r.count+'&times; GW</span>';
+      gwWinsBody.appendChild(row);
+    });
+  }
+
+  /* ---------- highlight card 2: juara sementara akhir musim ---------- */
+  document.getElementById('season-leader-note').textContent = lastPlayedId ? ('Sementara — setelah GW'+lastPlayedId) : 'Musim belum dimulai';
+  var seasonLeaderBody = document.getElementById('season-leader-body');
+  if(!seasonRows.length || !recordedEventIds.length){
+    seasonLeaderBody.innerHTML = '<div class="empty-state" style="padding:24px 18px;">Musim belum dimulai.</div>';
+  } else {
+    var leader = seasonRows[0];
+    var runners = seasonRows.slice(1,4);
+    var html = '<div class="spotlight">'+
+      '<span class="crown-big">🏆</span>'+
+      '<span class="s-team">'+leader.team+'</span>'+
+      '<span class="s-manager">'+leader.manager+'</span>'+
+      '<span class="s-points">'+leader.total+'</span>'+
+      '<span class="s-points-label">Total Poin</span>';
+    if(runners.length){
+      html += '<div class="runner-ups">';
+      runners.forEach(function(r, idx){
+        html += '<div class="runner-row"><span>#'+(idx+2)+' <b>'+r.team+'</b></span><span>'+r.total+' pts</span></div>';
+      });
+      html += '</div>';
+    }
+    html += '</div>';
+    seasonLeaderBody.innerHTML = html;
+  }
 
   document.getElementById('member-count').textContent = MANAGERS.length + ' manajer';
   var upd = new Date(LEAGUE.lastUpdated);
