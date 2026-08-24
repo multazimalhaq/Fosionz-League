@@ -6,100 +6,180 @@
 <title>Fosionz League</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚽</text></svg>">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
 
   :root{
-    --bg:#F4F7F2;
-    --surface:#FFFFFF;
-    --surface-alt:#EAF0E7;
-    --border:#D8E2D4;
-    --text:#16201A;
-    --text-muted:#55665C;
-    --accent:#1E7A4C;
-    --accent-strong:#14562F;
-    --accent-soft:#DCEFE2;
-    --gold:#9A7223;
-    --gold-soft:#F7ECD3;
-    --gold-text:#5B4416;
-    --shadow: 0 1px 2px rgba(20,40,25,0.06), 0 8px 24px -12px rgba(20,40,25,0.18);
-  }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --bg:#0E1512; --surface:#161F1A; --surface-alt:#1D2721; --border:#2A362E;
-      --text:#E8EFE9; --text-muted:#93A69A; --accent:#3ECB82; --accent-strong:#2FA968;
-      --accent-soft:#163326; --gold:#E3B94E; --gold-soft:#33280F; --gold-text:#F0D48A;
-      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
-    }
-  }
-  :root[data-theme="dark"]{
-    --bg:#0E1512; --surface:#161F1A; --surface-alt:#1D2721; --border:#2A362E;
-    --text:#E8EFE9; --text-muted:#93A69A; --accent:#3ECB82; --accent-strong:#2FA968;
-    --accent-soft:#163326; --gold:#E3B94E; --gold-soft:#33280F; --gold-text:#F0D48A;
-    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    --bg:#250226;
+    --bg-alt:#38003C;
+    --surface:#3D0F45;
+    --surface-alt:#4B1652;
+    --border:#5C2960;
+    --border-soft:#4A1E52;
+    --text:#FFFFFF;
+    --text-muted:#C9A6D6;
+    --text-dim:#9C7BA8;
+    --cyan:#04F5FF;
+    --magenta:#E90052;
+    --violet:#963CFF;
+    --orange:#F2994A;
+    --gold:#FFC94A;
+    --gold-text:#3D2900;
+    --shadow: 0 1px 2px rgba(0,0,0,0.35), 0 12px 28px -14px rgba(0,0,0,0.6);
   }
 
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
-    background:var(--bg); color:var(--text);
+    background:var(--bg);
+    color:var(--text);
     font-family:'Public Sans', system-ui, -apple-system, sans-serif;
-    -webkit-font-smoothing:antialiased; line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
   }
   a{color:inherit;}
-  .wrap{ max-width:1080px; margin:0 auto; padding:28px 20px 64px; display:flex; flex-direction:column; gap:28px; }
+  .wrap{ max-width:1100px; margin:0 auto; padding:20px 20px 64px; display:flex; flex-direction:column; gap:22px; }
 
-  .head{ display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; border-bottom:1px solid var(--border); padding-bottom:20px; }
-  .head-left{display:flex; flex-direction:column; gap:6px; min-width:0;}
-  .eyebrow{ font-size:12px; font-weight:600; letter-spacing:0.09em; text-transform:uppercase; color:var(--accent-strong); }
-  h1{ font-family:'Barlow Condensed', sans-serif; font-weight:700; font-size:clamp(32px,5vw,44px); line-height:1.02; margin:0; text-wrap:balance; }
-  .subtitle{ color:var(--text-muted); font-size:14.5px; max-width:56ch; }
-  .meta{ display:flex; flex-direction:column; align-items:flex-end; gap:6px; font-size:12.5px; color:var(--text-muted); text-align:right; white-space:nowrap; }
-  .meta .count{ font-family:'IBM Plex Mono', monospace; color:var(--text); font-size:13px; }
+  /* hero header */
+  .hero{
+    background: linear-gradient(115deg, #00C2D6 0%, #7C3AED 52%, #E90052 100%);
+    border-radius:16px;
+    padding:22px 26px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+    flex-wrap:wrap;
+    box-shadow:var(--shadow);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background:radial-gradient(120% 140% at 100% 0%, rgba(255,255,255,0.16), transparent 55%);
+    pointer-events:none;
+  }
+  .hero-left{display:flex; flex-direction:column; gap:6px; min-width:0; position:relative;}
+  .eyebrow{
+    font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+    color:rgba(255,255,255,0.85);
+  }
+  h1{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:800;
+    font-size:clamp(32px,5vw,46px);
+    line-height:1.0;
+    margin:0;
+    text-wrap:balance;
+    color:#fff;
+    text-shadow:0 2px 12px rgba(0,0,0,0.25);
+  }
+  .subtitle{ color:rgba(255,255,255,0.88); font-size:14.5px; max-width:56ch; }
+  .meta{
+    display:flex; flex-direction:column; align-items:flex-end; gap:6px;
+    font-size:12.5px; color:rgba(255,255,255,0.85); text-align:right; white-space:nowrap; position:relative;
+  }
+  .meta .count{
+    font-family:'IBM Plex Mono', monospace; color:#fff; font-size:13px; font-weight:600;
+    background:rgba(255,255,255,0.16); padding:4px 10px; border-radius:100px;
+  }
 
-  .section-title{ font-family:'Barlow Condensed', sans-serif; font-weight:600; font-size:22px; letter-spacing:0.01em; margin:0; }
+  .section-title{ font-family:'Barlow Condensed', sans-serif; font-weight:700; font-size:22px; letter-spacing:0.01em; margin:0; }
   .section-head{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; }
   .section-note{ color:var(--text-muted); font-size:13px; }
 
+  /* countdown card */
+  .panel{
+    background:var(--surface); border:1px solid var(--border-soft); border-radius:14px;
+    box-shadow:var(--shadow); overflow:hidden;
+  }
+  .panel-head{
+    padding:16px 20px; border-bottom:1px solid var(--border-soft);
+    display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
+  }
+  .panel-head h2{ font-family:'Barlow Condensed', sans-serif; font-size:21px; font-weight:700; margin:0; color:#fff; }
+
+  .deadline-body{ padding:22px 20px 24px; display:flex; flex-direction:column; gap:20px; }
+  .countdown{ display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; }
+  .cd-box{
+    display:flex; flex-direction:column; align-items:center; gap:4px;
+    background:var(--bg-alt); border:1px solid var(--border-soft); border-radius:10px;
+    padding:12px 16px; min-width:74px;
+  }
+  .cd-num{
+    font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:clamp(26px,4vw,36px);
+    color:var(--cyan); font-variant-numeric:tabular-nums; line-height:1;
+  }
+  .cd-label{ font-size:10.5px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); }
+  .cd-sep{ font-family:'IBM Plex Mono', monospace; font-size:26px; color:var(--text-dim); }
+
+  .upcoming-list{ display:flex; flex-direction:column; gap:2px; }
+  .upcoming-title{ font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-dim); margin-bottom:6px; }
+  .upcoming-row{
+    display:flex; justify-content:space-between; align-items:center; gap:12px;
+    padding:9px 4px; border-bottom:1px solid var(--border-soft); font-size:13.5px;
+  }
+  .upcoming-row:last-child{border-bottom:none;}
+  .upcoming-row .gw{font-weight:600; color:#fff;}
+  .upcoming-row .dl{ font-family:'IBM Plex Mono', monospace; color:var(--text-muted); font-size:12.5px; }
+
+  /* month filter strip */
   .month-scroll{ overflow-x:auto; margin:0 -20px; padding:4px 20px 10px; }
   .month-strip{ display:flex; gap:10px; width:max-content; }
   .month-card{
-    all:unset; cursor:pointer; box-sizing:border-box; width:150px; flex:0 0 auto;
-    background:var(--surface); border:1px solid var(--border); border-radius:10px;
+    all:unset; cursor:pointer; box-sizing:border-box; width:154px; flex:0 0 auto;
+    background:var(--surface); border:1px solid var(--border-soft); border-radius:12px;
     padding:14px 14px 12px; display:flex; flex-direction:column; gap:8px;
-    transition:border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+    transition:border-color .15s ease, transform .15s ease, box-shadow .15s ease, background .15s ease;
   }
-  .month-card:hover{border-color:var(--accent); transform:translateY(-1px);}
-  .month-card:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
-  .month-card.active{ border-color:var(--accent); box-shadow:var(--shadow); background:var(--accent-soft); }
-  .month-card .m-label{ font-family:'Barlow Condensed', sans-serif; font-weight:600; font-size:18px; }
-  .chip{ align-self:flex-start; font-size:10.5px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; padding:2px 7px; border-radius:100px; }
-  .chip.live{background:var(--accent-soft); color:var(--accent-strong);}
-  .chip.upcoming{background:var(--surface-alt); color:var(--text-muted);}
-  .chip.done{background:var(--gold-soft); color:var(--gold-text);}
+  .month-card:hover{border-color:var(--violet); transform:translateY(-1px);}
+  .month-card:focus-visible{outline:2px solid var(--cyan); outline-offset:2px;}
+  .month-card.active{
+    border-color:var(--cyan);
+    box-shadow:0 0 0 1px var(--cyan), var(--shadow);
+    background:var(--surface-alt);
+  }
+  .month-card .m-label{ font-family:'Barlow Condensed', sans-serif; font-weight:700; font-size:18px; color:#fff; }
+  .chip{
+    align-self:flex-start; font-size:10.5px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase;
+    padding:2px 8px; border-radius:100px;
+  }
+  .chip.live{background:var(--orange); color:#3D1F00;}
+  .chip.upcoming{background:var(--surface-alt); color:var(--text-muted); border:1px solid var(--border-soft);}
+  .chip.done{background:var(--gold); color:var(--gold-text);}
   .m-leader{font-size:12.5px; color:var(--text-muted); min-height:16px;}
-  .m-leader b{color:var(--text); font-weight:600;}
-  .m-points{ font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:13px; color:var(--accent-strong); }
+  .m-leader b{color:#fff; font-weight:600;}
+  .m-points{ font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:13px; color:var(--cyan); }
 
-  .panel{ background:var(--surface); border:1px solid var(--border); border-radius:12px; box-shadow:var(--shadow); overflow:hidden; }
-  .panel-head{ padding:16px 18px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
-  .panel-head h2{ font-family:'Barlow Condensed', sans-serif; font-size:22px; font-weight:600; margin:0; }
   .table-scroll{overflow-x:auto;}
-  table{ width:100%; border-collapse:collapse; font-size:14px; min-width:560px; }
-  thead th{ text-align:left; font-size:11px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-muted); padding:10px 14px; border-bottom:1px solid var(--border); white-space:nowrap; }
-  tbody td{ padding:11px 14px; border-bottom:1px solid var(--border); vertical-align:middle; }
+  table{ width:100%; border-collapse:collapse; font-size:14px; min-width:640px; }
+  thead th{
+    text-align:left; font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--text-dim); padding:10px 14px; border-bottom:1px solid var(--border-soft); white-space:nowrap;
+  }
+  tbody td{ padding:11px 14px; border-bottom:1px solid var(--border-soft); vertical-align:middle; }
   tbody tr:last-child td{border-bottom:none;}
-  tbody tr.winner{background:var(--gold-soft);}
+  tbody tr.winner{background:linear-gradient(90deg, rgba(255,201,74,0.16), rgba(255,201,74,0.04));}
   .rank-cell{ font-family:'IBM Plex Mono', monospace; color:var(--text-muted); width:34px; }
   .rank-cell .crown{margin-right:3px;}
   .team-cell{display:flex; flex-direction:column; gap:1px;}
-  .team-name{font-weight:600;}
+  .team-name{font-weight:600; color:#fff;}
   .manager-name{font-size:12px; color:var(--text-muted);}
-  .num-cell{ font-family:'IBM Plex Mono', monospace; font-variant-numeric:tabular-nums; text-align:right; font-weight:600; }
+  .num-cell{ font-family:'IBM Plex Mono', monospace; font-variant-numeric:tabular-nums; text-align:right; font-weight:600; color:#fff; }
   .gw-cell{ font-family:'IBM Plex Mono', monospace; font-variant-numeric:tabular-nums; color:var(--text-muted); font-size:12.5px; }
+  .season-rank-cell{
+    font-family:'IBM Plex Mono', monospace; font-variant-numeric:tabular-nums; text-align:center;
+    color:var(--text-muted); font-size:13px;
+  }
+  .season-rank-cell .arrow-up{color:var(--cyan);}
+  .season-rank-cell .arrow-down{color:var(--magenta);}
   .empty-state{ padding:40px 18px; text-align:center; color:var(--text-muted); font-size:14px; }
 
-  footer{ border-top:1px solid var(--border); padding-top:16px; font-size:12px; color:var(--text-muted); display:flex; flex-direction:column; gap:4px; }
-  footer a{text-decoration:underline; text-underline-offset:2px;}
+  footer{
+    border-top:1px solid var(--border-soft); padding-top:16px; font-size:12px; color:var(--text-dim);
+    display:flex; flex-direction:column; gap:4px;
+  }
+  footer a{text-decoration:underline; text-underline-offset:2px; color:var(--text-muted);}
 
   @media (prefers-reduced-motion: reduce){ .month-card{transition:none;} }
 </style>
@@ -108,8 +188,8 @@
 
 <div class="wrap">
 
-  <div class="head">
-    <div class="head-left">
+  <div class="hero">
+    <div class="hero-left">
       <span class="eyebrow">Liga hadiah bulanan &middot; FPL 2026/27</span>
       <h1 id="league-name">Memuat&hellip;</h1>
       <p class="subtitle">Poin gameweek dikelompokkan per bulan &mdash; poin tertinggi tiap bulan berhak atas hadiah.</p>
@@ -120,10 +200,32 @@
     </div>
   </div>
 
+  <section class="panel" id="deadline-panel" hidden>
+    <div class="panel-head">
+      <h2>Deadline Berikutnya</h2>
+      <span class="section-note" id="next-gw-label"></span>
+    </div>
+    <div class="deadline-body">
+      <div class="countdown" id="countdown">
+        <div class="cd-box"><span class="cd-num" id="cd-days">00</span><span class="cd-label">Hari</span></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-box"><span class="cd-num" id="cd-hours">00</span><span class="cd-label">Jam</span></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-box"><span class="cd-num" id="cd-mins">00</span><span class="cd-label">Menit</span></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-box"><span class="cd-num" id="cd-secs">00</span><span class="cd-label">Detik</span></div>
+      </div>
+      <div class="upcoming-list">
+        <div class="upcoming-title">Deadline berikutnya</div>
+        <div id="upcoming-rows"></div>
+      </div>
+    </div>
+  </section>
+
   <section id="content" hidden>
     <div class="section-head">
-      <h2 class="section-title">Papan bulanan</h2>
-      <span class="section-note">Klik satu bulan untuk lihat rincian</span>
+      <h2 class="section-title">Filter Bulan</h2>
+      <span class="section-note">Bulan berjalan otomatis terpilih &mdash; klik bulan lain buat lihat rincian</span>
     </div>
     <div class="month-scroll">
       <div class="month-strip" id="month-strip" role="tablist" aria-label="Pilih bulan"></div>
@@ -138,7 +240,7 @@
     <div class="table-scroll">
       <table id="detail-table">
         <thead>
-          <tr><th>#</th><th>Tim</th><th>Rincian GW</th><th style="text-align:right">Poin bulan</th></tr>
+          <tr><th>Pos. Bulan</th><th>Tim</th><th>Rincian GW</th><th style="text-align:right">Poin bulan</th><th style="text-align:center">Pos. Keseluruhan</th></tr>
         </thead>
         <tbody id="detail-body"></tbody>
       </table>
@@ -148,12 +250,12 @@
 
   <section class="panel" id="season-panel" hidden>
     <div class="panel-head">
-      <h2>Klasemen musim</h2>
+      <h2>Klasemen Musim (Posisi Keseluruhan)</h2>
       <span class="section-note" id="season-sub"></span>
     </div>
     <div class="table-scroll">
       <table>
-        <thead><tr><th>#</th><th>Tim</th><th style="text-align:right">Total poin</th></tr></thead>
+        <thead><tr><th>Pos.</th><th>Tim</th><th style="text-align:right">Total poin</th></tr></thead>
         <tbody id="season-body"></tbody>
       </table>
     </div>
@@ -162,7 +264,7 @@
   <div class="empty-state" id="load-state">Memuat data liga&hellip;</div>
 
   <footer id="page-footer" hidden>
-    <span>Data ditarik dari API publik Fantasy Premier League (fantasy.premierleague.com) lewat GitHub Actions terjadwal. Gameweek dikelompokkan ke bulan berdasarkan tanggal deadline gameweek (UTC).</span>
+    <span>Data ditarik dari API publik Fantasy Premier League (fantasy.premierleague.com) lewat GitHub Actions terjadwal. Gameweek dikelompokkan ke bulan berdasarkan tanggal deadline gameweek (UTC). Bukan situs resmi Premier League &mdash; ini dashboard fan-made buat liga temen-temen.</span>
     <span id="footer-note"></span>
   </footer>
 
@@ -181,6 +283,7 @@
     return;
   }
   loadState.hidden = true;
+  document.getElementById('deadline-panel').hidden = false;
   document.getElementById('content').hidden = false;
   document.getElementById('detail-panel').hidden = false;
   document.getElementById('season-panel').hidden = false;
@@ -195,6 +298,48 @@
 
   document.getElementById('league-name').textContent = LEAGUE.name;
 
+  /* ---------- countdown + upcoming deadlines ---------- */
+  var sortedEvents = EVENTS.slice().sort(function(a,b){ return new Date(a.deadline) - new Date(b.deadline); });
+  function futureEvents(){
+    var now = new Date();
+    return sortedEvents.filter(function(e){ return new Date(e.deadline).getTime() > now.getTime(); });
+  }
+  function fmtDeadline(iso){
+    var d = new Date(iso);
+    return d.toLocaleString('id-ID', {weekday:'short', day:'numeric', month:'short', hour:'2-digit', minute:'2-digit', timeZone:'Asia/Jakarta'}) + ' WIB';
+  }
+  function pad2(n){ return String(n).padStart(2,'0'); }
+
+  var upcoming = futureEvents();
+  if(upcoming.length){
+    var next = upcoming[0];
+    document.getElementById('next-gw-label').textContent = 'Gameweek ' + next.id;
+    var rowsEl = document.getElementById('upcoming-rows');
+    upcoming.slice(0,5).forEach(function(ev){
+      var row = document.createElement('div');
+      row.className = 'upcoming-row';
+      row.innerHTML = '<span class="gw">Gameweek '+ev.id+'</span><span class="dl">'+fmtDeadline(ev.deadline)+'</span>';
+      rowsEl.appendChild(row);
+    });
+    function tick(){
+      var diff = new Date(next.deadline).getTime() - Date.now();
+      if(diff < 0) diff = 0;
+      var days = Math.floor(diff / 86400000);
+      var hours = Math.floor((diff % 86400000) / 3600000);
+      var mins = Math.floor((diff % 3600000) / 60000);
+      var secs = Math.floor((diff % 60000) / 1000);
+      document.getElementById('cd-days').textContent = pad2(days);
+      document.getElementById('cd-hours').textContent = pad2(hours);
+      document.getElementById('cd-mins').textContent = pad2(mins);
+      document.getElementById('cd-secs').textContent = pad2(secs);
+    }
+    tick();
+    setInterval(tick, 1000);
+  } else {
+    document.getElementById('deadline-panel').hidden = true;
+  }
+
+  /* ---------- month grouping ---------- */
   function monthKey(iso){ var d=new Date(iso); return d.getUTCFullYear()+"-"+String(d.getUTCMonth()+1).padStart(2,"0"); }
   function monthLabel(iso){ var d=new Date(iso); return d.toLocaleDateString('id-ID',{month:'long',year:'numeric',timeZone:'UTC'}); }
   function monthLabelShort(iso){ var d=new Date(iso); return d.toLocaleDateString('id-ID',{month:'short',year:'2-digit',timeZone:'UTC'}); }
@@ -219,6 +364,16 @@
     if(anyDone && anyUpcoming) return 'live';
     return 'upcoming';
   }
+
+  /* ---------- overall season standings (posisi keseluruhan) ---------- */
+  var seasonRows = MANAGERS.map(function(mg){
+    var total = 0;
+    Object.keys(POINTS[mg.entry] || {}).forEach(function(k){ total += POINTS[mg.entry][k]; });
+    return {entry:mg.entry, team:mg.team, manager:mg.manager, total:total};
+  }).sort(function(a,b){ return b.total - a.total; });
+  var seasonRankByEntry = {};
+  seasonRows.forEach(function(r,i){ seasonRankByEntry[r.entry] = i+1; });
+
   function monthRows(m){
     var playedIds = m.events.map(function(e){return e.id;}).filter(function(id){ return PLAYED_EVENTS.indexOf(id)!==-1 || id===CURRENT_EVENT; });
     return MANAGERS.map(function(mg){
@@ -228,10 +383,11 @@
         if(pts !== null){ total += pts; }
         breakdown.push({id:ev.id, points:pts});
       });
-      return {entry:mg.entry, team:mg.team, manager:mg.manager, total:total, breakdown:breakdown, hasData: playedIds.length>0};
+      return {entry:mg.entry, team:mg.team, manager:mg.manager, total:total, breakdown:breakdown, hasData: playedIds.length>0, seasonRank: seasonRankByEntry[mg.entry]};
     }).filter(function(r){ return r.hasData; }).sort(function(a,b){ return b.total - a.total; });
   }
 
+  /* ---------- month filter strip ---------- */
   var strip = document.getElementById('month-strip');
   monthOrder.forEach(function(key){
     var m = monthsMap[key];
@@ -255,6 +411,10 @@
 
   function fmtBreakdown(breakdown){
     return breakdown.map(function(b){ return b.points === null ? ('GW'+b.id+':–') : ('GW'+b.id+':'+b.points); }).join('  ');
+  }
+  function rankBadge(rank, total){
+    if(!rank) return '–';
+    return '#'+rank;
   }
 
   function selectMonth(key){
@@ -283,7 +443,8 @@
         '<td class="rank-cell">'+(isWinner ? '<span class="crown">🏆</span>' : '')+(i+1)+'</td>'+
         '<td class="team-cell"><span class="team-name">'+r.team+'</span><span class="manager-name">'+r.manager+'</span></td>'+
         '<td class="gw-cell">'+fmtBreakdown(r.breakdown)+'</td>'+
-        '<td class="num-cell">'+r.total+'</td>';
+        '<td class="num-cell">'+r.total+'</td>'+
+        '<td class="season-rank-cell">'+rankBadge(r.seasonRank)+'</td>';
       body.appendChild(tr);
     });
   }
@@ -296,12 +457,7 @@
   var activeCard = strip.querySelector('.month-card.active');
   if(activeCard) activeCard.scrollIntoView({inline:'center', block:'nearest'});
 
-  var seasonRows = MANAGERS.map(function(mg){
-    var total = 0;
-    Object.keys(POINTS[mg.entry] || {}).forEach(function(k){ total += POINTS[mg.entry][k]; });
-    return {team:mg.team, manager:mg.manager, total:total};
-  }).sort(function(a,b){ return b.total - a.total; });
-
+  /* ---------- season table ---------- */
   var seasonBody = document.getElementById('season-body');
   seasonRows.forEach(function(r, i){
     var tr = document.createElement('tr');
