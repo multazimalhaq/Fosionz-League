@@ -3,7 +3,7 @@
     "id": 754072,
     "name": "Fosionz League",
     "season": "2026/27",
-    "lastUpdated": "2026-08-25T16:00:42.180Z"
+    "lastUpdated": "2026-08-25T16:53:02.526Z"
   },
   "events": [
     {
@@ -200,14 +200,14 @@
       "manager": "babar bener"
     },
     {
-      "entry": 3204276,
-      "team": "La Fee Verte FC",
-      "manager": "Akid Abdussalam"
-    },
-    {
       "entry": 3625306,
       "team": "FC Kranji City",
       "manager": "Fahrul Putra"
+    },
+    {
+      "entry": 3204276,
+      "team": "La Fee Verte FC",
+      "manager": "Akid Abdussalam"
     },
     {
       "entry": 3623417,
@@ -235,14 +235,14 @@
       "manager": "Levene Square"
     },
     {
-      "entry": 3633224,
-      "team": "Pakuwon FC",
-      "manager": "Jordan Nathaniel Ford"
-    },
-    {
       "entry": 2463125,
       "team": "New Coral FC",
       "manager": "Hanzo GM"
+    },
+    {
+      "entry": 3633224,
+      "team": "Pakuwon FC",
+      "manager": "Jordan Nathaniel Ford"
     },
     {
       "entry": 3623867,
