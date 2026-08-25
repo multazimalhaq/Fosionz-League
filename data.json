@@ -3,7 +3,7 @@
     "id": 754072,
     "name": "Fosionz League",
     "season": "2026/27",
-    "lastUpdated": "2026-08-24T23:59:10.318Z"
+    "lastUpdated": "2026-08-25T01:21:22.085Z"
   },
   "events": [
     {
@@ -163,14 +163,14 @@
   "playedEvents": [],
   "managers": [
     {
-      "entry": 238148,
-      "team": "Jangan dilihat",
-      "manager": "faris azim"
-    },
-    {
       "entry": 3257881,
       "team": "Title Rice",
       "manager": "Shidiq Muhammad"
+    },
+    {
+      "entry": 238148,
+      "team": "Jangan dilihat",
+      "manager": "faris azim"
     },
     {
       "entry": 85270,
