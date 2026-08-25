@@ -3,7 +3,7 @@
     "id": 754072,
     "name": "Fosionz League",
     "season": "2026/27",
-    "lastUpdated": "2026-08-25T11:52:02.411Z"
+    "lastUpdated": "2026-08-25T12:30:19.126Z"
   },
   "events": [
     {
@@ -160,7 +160,9 @@
     }
   ],
   "currentEvent": 1,
-  "playedEvents": [],
+  "playedEvents": [
+    1
+  ],
   "managers": [
     {
       "entry": 238148,
@@ -183,14 +185,14 @@
       "manager": "Hassan Musthafa"
     },
     {
-      "entry": 4656762,
-      "team": "MAMPRANK FC",
-      "manager": "Zaidan Izzatulhaq Aljundi"
-    },
-    {
       "entry": 1838776,
       "team": "KING EMYU",
       "manager": "Aep Muhaemin"
+    },
+    {
+      "entry": 4656762,
+      "team": "MAMPRANK FC",
+      "manager": "Zaidan Izzatulhaq Aljundi"
     },
     {
       "entry": 46579,
@@ -198,14 +200,14 @@
       "manager": "babar bener"
     },
     {
-      "entry": 3204276,
-      "team": "La Fee Verte FC",
-      "manager": "Akid Abdussalam"
-    },
-    {
       "entry": 3625306,
       "team": "FC Kranji City",
       "manager": "Fahrul Putra"
+    },
+    {
+      "entry": 3204276,
+      "team": "La Fee Verte FC",
+      "manager": "Akid Abdussalam"
     },
     {
       "entry": 3623417,
@@ -233,14 +235,14 @@
       "manager": "Levene Square"
     },
     {
-      "entry": 2463125,
-      "team": "New Coral FC",
-      "manager": "Hanzo GM"
-    },
-    {
       "entry": 3633224,
       "team": "Pakuwon FC",
       "manager": "Jordan Nathaniel Ford"
+    },
+    {
+      "entry": 2463125,
+      "team": "New Coral FC",
+      "manager": "Hanzo GM"
     },
     {
       "entry": 3623867,
