@@ -3,7 +3,7 @@
     "id": 754072,
     "name": "Fosionz League",
     "season": "2026/27",
-    "lastUpdated": "2026-08-25T10:05:10.381Z"
+    "lastUpdated": "2026-08-25T10:47:47.553Z"
   },
   "events": [
     {
@@ -183,14 +183,14 @@
       "manager": "Hassan Musthafa"
     },
     {
-      "entry": 1838776,
-      "team": "KING EMYU",
-      "manager": "Aep Muhaemin"
-    },
-    {
       "entry": 4656762,
       "team": "MAMPRANK FC",
       "manager": "Zaidan Izzatulhaq Aljundi"
+    },
+    {
+      "entry": 1838776,
+      "team": "KING EMYU",
+      "manager": "Aep Muhaemin"
     },
     {
       "entry": 46579,
@@ -198,14 +198,14 @@
       "manager": "babar bener"
     },
     {
-      "entry": 3204276,
-      "team": "La Fee Verte FC",
-      "manager": "Akid Abdussalam"
-    },
-    {
       "entry": 3625306,
       "team": "FC Kranji City",
       "manager": "Fahrul Putra"
+    },
+    {
+      "entry": 3204276,
+      "team": "La Fee Verte FC",
+      "manager": "Akid Abdussalam"
     },
     {
       "entry": 3623417,
