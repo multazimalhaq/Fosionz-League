@@ -3,7 +3,7 @@
     "id": 754072,
     "name": "Fosionz League",
     "season": "2026/27",
-    "lastUpdated": "2026-08-29T11:02:30.012Z"
+    "lastUpdated": "2026-08-29T15:36:33.605Z"
   },
   "events": [
     {
@@ -170,14 +170,9 @@
       "manager": "Shidiq Muhammad"
     },
     {
-      "entry": 238148,
-      "team": "Jangan dilihat",
-      "manager": "faris azim"
-    },
-    {
-      "entry": 4656762,
-      "team": "MAMPRANK FC",
-      "manager": "Zaidan Izzatulhaq Aljundi"
+      "entry": 83181,
+      "team": "FPL Modal Firasat",
+      "manager": "Hassan Musthafa"
     },
     {
       "entry": 3204276,
@@ -185,9 +180,29 @@
       "manager": "Akid Abdussalam"
     },
     {
-      "entry": 83181,
-      "team": "FPL Modal Firasat",
-      "manager": "Hassan Musthafa"
+      "entry": 4656762,
+      "team": "MAMPRANK FC",
+      "manager": "Zaidan Izzatulhaq Aljundi"
+    },
+    {
+      "entry": 85270,
+      "team": "POWER DANGER FC",
+      "manager": "Kas Hartadi"
+    },
+    {
+      "entry": 2463125,
+      "team": "New Coral FC",
+      "manager": "Hanzo GM"
+    },
+    {
+      "entry": 46579,
+      "team": "Summarecon City",
+      "manager": "babar bener"
+    },
+    {
+      "entry": 238148,
+      "team": "Jangan dilihat",
+      "manager": "faris azim"
     },
     {
       "entry": 3625306,
@@ -195,9 +210,9 @@
       "manager": "Fahrul Putra"
     },
     {
-      "entry": 46579,
-      "team": "Summarecon City",
-      "manager": "babar bener"
+      "entry": 3631190,
+      "team": "Antek Antek Asing",
+      "manager": "Muhamamd Miqdad AlFarisy"
     },
     {
       "entry": 117245,
@@ -210,29 +225,9 @@
       "manager": "Muhammad Tsaqif Fikry"
     },
     {
-      "entry": 85270,
-      "team": "POWER DANGER FC",
-      "manager": "Kas Hartadi"
-    },
-    {
       "entry": 1838776,
       "team": "KING EMYU",
       "manager": "Aep Muhaemin"
-    },
-    {
-      "entry": 2463125,
-      "team": "New Coral FC",
-      "manager": "Hanzo GM"
-    },
-    {
-      "entry": 3623791,
-      "team": "Metropolitan United",
-      "manager": "Shiba Inu"
-    },
-    {
-      "entry": 3633224,
-      "team": "Pakuwon FC",
-      "manager": "Jordan Nathaniel Ford"
     },
     {
       "entry": 132302,
@@ -245,9 +240,14 @@
       "manager": "Syu'bah Ishmatullah"
     },
     {
-      "entry": 3631190,
-      "team": "Antek Antek Asing",
-      "manager": "Muhamamd Miqdad AlFarisy"
+      "entry": 3633224,
+      "team": "Pakuwon FC",
+      "manager": "Jordan Nathaniel Ford"
+    },
+    {
+      "entry": 3623791,
+      "team": "Metropolitan United",
+      "manager": "Shiba Inu"
     },
     {
       "entry": 3623867,
