@@ -3,7 +3,7 @@
     "id": 754072,
     "name": "Fosionz League",
     "season": "2026/27",
-    "lastUpdated": "2026-08-30T17:05:03.179Z"
+    "lastUpdated": "2026-08-30T19:48:52.154Z"
   },
   "events": [
     {
@@ -170,9 +170,9 @@
       "manager": "Kas Hartadi"
     },
     {
-      "entry": 132302,
-      "team": "Levene Square",
-      "manager": "i Lupi"
+      "entry": 1838776,
+      "team": "KING EMYU",
+      "manager": "Aep Muhaemin"
     },
     {
       "entry": 3623791,
@@ -180,19 +180,9 @@
       "manager": "Shiba Inu"
     },
     {
-      "entry": 46579,
-      "team": "Summarecon City",
-      "manager": "babar bener"
-    },
-    {
-      "entry": 4656762,
-      "team": "MAMPRANK FC",
-      "manager": "Zaidan Izzatulhaq Aljundi"
-    },
-    {
-      "entry": 1838776,
-      "team": "KING EMYU",
-      "manager": "Aep Muhaemin"
+      "entry": 132302,
+      "team": "Levene Square",
+      "manager": "i Lupi"
     },
     {
       "entry": 83181,
@@ -200,9 +190,29 @@
       "manager": "Hassan Musthafa"
     },
     {
+      "entry": 4656762,
+      "team": "MAMPRANK FC",
+      "manager": "Zaidan Izzatulhaq Aljundi"
+    },
+    {
+      "entry": 46579,
+      "team": "Summarecon City",
+      "manager": "babar bener"
+    },
+    {
       "entry": 3633224,
       "team": "Pakuwon FC",
       "manager": "Jordan Nathaniel Ford"
+    },
+    {
+      "entry": 6797821,
+      "team": "SAKIP FC",
+      "manager": "Muhammad Tsaqif Fikry"
+    },
+    {
+      "entry": 3257881,
+      "team": "Title Rice",
+      "manager": "Shidiq Muhammad"
     },
     {
       "entry": 3204276,
@@ -220,24 +230,14 @@
       "manager": "Fahrul Putra"
     },
     {
-      "entry": 3257881,
-      "team": "Title Rice",
-      "manager": "Shidiq Muhammad"
-    },
-    {
-      "entry": 6797821,
-      "team": "SAKIP FC",
-      "manager": "Muhammad Tsaqif Fikry"
+      "entry": 3623417,
+      "team": "Kasreng Beu",
+      "manager": "Syu'bah Ishmatullah"
     },
     {
       "entry": 117245,
       "team": "PUNDIDUDEDOT",
       "manager": "Hanif Kasyfillah"
-    },
-    {
-      "entry": 3623417,
-      "team": "Kasreng Beu",
-      "manager": "Syu'bah Ishmatullah"
     },
     {
       "entry": 2463125,
@@ -258,75 +258,75 @@
   "points": {
     "46579": {
       "1": 52,
-      "2": 32
+      "2": 74
     },
     "83181": {
       "1": 56,
-      "2": 35
+      "2": 75
     },
     "85270": {
       "1": 61,
-      "2": 20
+      "2": 94
     },
     "117245": {
       "1": 46,
-      "2": 29
+      "2": 59
     },
     "132302": {
       "1": 42,
-      "2": 19
+      "2": 97
     },
     "238148": {
       "1": 64,
-      "2": 18
+      "2": 53
     },
     "1838776": {
       "1": 54,
-      "2": 22
+      "2": 90
     },
     "2463125": {
       "1": 41,
-      "2": 48
+      "2": 64
     },
     "3204276": {
       "1": 51,
-      "2": 52
+      "2": 70
     },
     "3257881": {
       "1": 63,
-      "2": 37
+      "2": 58
     },
     "3623417": {
       "1": 47,
-      "2": 24
+      "2": 59
     },
     "3623791": {
       "1": 44,
-      "2": 13
+      "2": 97
     },
     "3623867": {
       "1": 32,
-      "2": 8
+      "2": 68
     },
     "3625306": {
       "1": 51,
-      "2": 28
+      "2": 66
     },
     "3631190": {
       "1": 27,
-      "2": 49
+      "2": 50
     },
     "3633224": {
       "1": 41,
-      "2": 18
+      "2": 85
     },
     "4656762": {
       "1": 54,
-      "2": 33
+      "2": 73
     },
     "6797821": {
       "1": 45,
-      "2": 31
+      "2": 76
     }
   }
 }
