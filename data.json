@@ -3,7 +3,7 @@
     "id": 754072,
     "name": "Fosionz League",
     "season": "2026/27",
-    "lastUpdated": "2026-09-01T12:32:54.116Z"
+    "lastUpdated": "2026-09-01T16:54:34.485Z"
   },
   "events": [
     {
@@ -161,7 +161,8 @@
   ],
   "currentEvent": 2,
   "playedEvents": [
-    1
+    1,
+    2
   ],
   "managers": [
     {
