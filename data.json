@@ -3,7 +3,7 @@
     "id": 754072,
     "name": "Fosionz League",
     "season": "2026/27",
-    "lastUpdated": "2026-09-05T09:05:30.921Z"
+    "lastUpdated": "2026-09-05T12:39:55.301Z"
   },
   "events": [
     {
@@ -176,14 +176,14 @@
       "manager": "i Lupi"
     },
     {
-      "entry": 3623791,
-      "team": "Metropolitan United",
-      "manager": "Shiba Inu"
-    },
-    {
       "entry": 1838776,
       "team": "KING EMYU",
       "manager": "Aep Muhaemin"
+    },
+    {
+      "entry": 3623791,
+      "team": "Metropolitan United",
+      "manager": "Shiba Inu"
     },
     {
       "entry": 83181,
@@ -206,14 +206,19 @@
       "manager": "Zaidan Izzatulhaq Aljundi"
     },
     {
-      "entry": 3257881,
-      "team": "Title Rice",
-      "manager": "Shidiq Muhammad"
+      "entry": 3633224,
+      "team": "Pakuwon FC",
+      "manager": "Jordan Nathaniel Ford"
     },
     {
       "entry": 238148,
       "team": "Jangan dilihat",
       "manager": "faris azim"
+    },
+    {
+      "entry": 3257881,
+      "team": "Title Rice",
+      "manager": "Shidiq Muhammad"
     },
     {
       "entry": 3623417,
@@ -226,19 +231,14 @@
       "manager": "Fahrul Putra"
     },
     {
-      "entry": 2463125,
-      "team": "New Coral FC",
-      "manager": "Hanzo GM"
-    },
-    {
       "entry": 3204276,
       "team": "La Fee Verte FC",
       "manager": "Akid Abdussalam"
     },
     {
-      "entry": 3633224,
-      "team": "Pakuwon FC",
-      "manager": "Jordan Nathaniel Ford"
+      "entry": 2463125,
+      "team": "New Coral FC",
+      "manager": "Hanzo GM"
     },
     {
       "entry": 117245,
