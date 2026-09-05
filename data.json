@@ -3,7 +3,7 @@
     "id": 754072,
     "name": "Fosionz League",
     "season": "2026/27",
-    "lastUpdated": "2026-09-05T17:37:50.398Z"
+    "lastUpdated": "2026-09-05T19:28:38.277Z"
   },
   "events": [
     {
@@ -181,6 +181,11 @@
       "manager": "Aep Muhaemin"
     },
     {
+      "entry": 83181,
+      "team": "FPL Modal Firasat",
+      "manager": "Hassan Musthafa"
+    },
+    {
       "entry": 3623791,
       "team": "Metropolitan United",
       "manager": "Shiba Inu"
@@ -189,11 +194,6 @@
       "entry": 4656762,
       "team": "MAMPRANK FC",
       "manager": "Zaidan Izzatulhaq Aljundi"
-    },
-    {
-      "entry": 83181,
-      "team": "FPL Modal Firasat",
-      "manager": "Hassan Musthafa"
     },
     {
       "entry": 46579,
@@ -211,14 +211,19 @@
       "manager": "Shidiq Muhammad"
     },
     {
+      "entry": 6797821,
+      "team": "SAKIP FC",
+      "manager": "Muhammad Tsaqif Fikry"
+    },
+    {
       "entry": 2463125,
       "team": "New Coral FC",
       "manager": "Hanzo GM"
     },
     {
-      "entry": 6797821,
-      "team": "SAKIP FC",
-      "manager": "Muhammad Tsaqif Fikry"
+      "entry": 238148,
+      "team": "Jangan dilihat",
+      "manager": "faris azim"
     },
     {
       "entry": 3623867,
@@ -231,19 +236,14 @@
       "manager": "Fahrul Putra"
     },
     {
-      "entry": 238148,
-      "team": "Jangan dilihat",
-      "manager": "faris azim"
+      "entry": 3623417,
+      "team": "Kasreng Beu",
+      "manager": "Syu'bah Ishmatullah"
     },
     {
       "entry": 3204276,
       "team": "La Fee Verte FC",
       "manager": "Akid Abdussalam"
-    },
-    {
-      "entry": 3623417,
-      "team": "Kasreng Beu",
-      "manager": "Syu'bah Ishmatullah"
     },
     {
       "entry": 117245,
