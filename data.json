@@ -3,7 +3,7 @@
     "id": 754072,
     "name": "Fosionz League",
     "season": "2026/27",
-    "lastUpdated": "2026-09-06T16:21:32.846Z"
+    "lastUpdated": "2026-09-06T18:27:11.069Z"
   },
   "events": [
     {
@@ -186,19 +186,24 @@
       "manager": "Aep Muhaemin"
     },
     {
+      "entry": 46579,
+      "team": "Summarecon City",
+      "manager": "babar bener"
+    },
+    {
       "entry": 83181,
       "team": "FPL Modal Firasat",
       "manager": "Hassan Musthafa"
     },
     {
-      "entry": 3633224,
-      "team": "Pakuwon FC",
-      "manager": "Jordan Nathaniel Ford"
-    },
-    {
       "entry": 6797821,
       "team": "SAKIP FC",
       "manager": "Muhammad Tsaqif Fikry"
+    },
+    {
+      "entry": 3633224,
+      "team": "Pakuwon FC",
+      "manager": "Jordan Nathaniel Ford"
     },
     {
       "entry": 4656762,
@@ -211,14 +216,9 @@
       "manager": "Shidiq Muhammad"
     },
     {
-      "entry": 46579,
-      "team": "Summarecon City",
-      "manager": "babar bener"
-    },
-    {
-      "entry": 2463125,
-      "team": "New Coral FC",
-      "manager": "Hanzo GM"
+      "entry": 3625306,
+      "team": "FC Kranji City",
+      "manager": "Fahrul Putra"
     },
     {
       "entry": 238148,
@@ -226,9 +226,14 @@
       "manager": "faris azim"
     },
     {
-      "entry": 3625306,
-      "team": "FC Kranji City",
-      "manager": "Fahrul Putra"
+      "entry": 2463125,
+      "team": "New Coral FC",
+      "manager": "Hanzo GM"
+    },
+    {
+      "entry": 117245,
+      "team": "PUNDIDUDEDOT",
+      "manager": "Hanif Kasyfillah"
     },
     {
       "entry": 3623867,
@@ -236,19 +241,14 @@
       "manager": "Multazim Alhaq"
     },
     {
-      "entry": 3623417,
-      "team": "Kasreng Beu",
-      "manager": "Syu'bah Ishmatullah"
-    },
-    {
       "entry": 3204276,
       "team": "La Fee Verte FC",
       "manager": "Akid Abdussalam"
     },
     {
-      "entry": 117245,
-      "team": "PUNDIDUDEDOT",
-      "manager": "Hanif Kasyfillah"
+      "entry": 3623417,
+      "team": "Kasreng Beu",
+      "manager": "Syu'bah Ishmatullah"
     },
     {
       "entry": 3631190,
