@@ -3,7 +3,7 @@
     "id": 754072,
     "name": "Fosionz League",
     "season": "2026/27",
-    "lastUpdated": "2026-09-06T20:37:44.412Z"
+    "lastUpdated": "2026-09-06T22:20:32.139Z"
   },
   "events": [
     {
@@ -171,14 +171,14 @@
       "manager": "Kas Hartadi"
     },
     {
-      "entry": 132302,
-      "team": "Levene Square",
-      "manager": "i Lupi"
-    },
-    {
       "entry": 3623791,
       "team": "Metropolitan United",
       "manager": "Shiba Inu"
+    },
+    {
+      "entry": 132302,
+      "team": "Levene Square",
+      "manager": "i Lupi"
     },
     {
       "entry": 1838776,
