@@ -3,7 +3,7 @@
     "id": 754072,
     "name": "Fosionz League",
     "season": "2026/27",
-    "lastUpdated": "2026-09-12T17:19:11.457Z"
+    "lastUpdated": "2026-09-12T19:30:58.659Z"
   },
   "events": [
     {
@@ -192,14 +192,14 @@
       "manager": "Zaidan Izzatulhaq Aljundi"
     },
     {
-      "entry": 1838776,
-      "team": "KING EMYU",
-      "manager": "Aep Muhaemin"
-    },
-    {
       "entry": 3623791,
       "team": "Metropolitan United",
       "manager": "Shiba Inu"
+    },
+    {
+      "entry": 1838776,
+      "team": "KING EMYU",
+      "manager": "Aep Muhaemin"
     },
     {
       "entry": 3257881,
@@ -222,14 +222,14 @@
       "manager": "Muhammad Tsaqif Fikry"
     },
     {
-      "entry": 2463125,
-      "team": "New Coral FC",
-      "manager": "Hanzo GM"
-    },
-    {
       "entry": 3625306,
       "team": "FC Kranji City",
       "manager": "Fahrul Putra"
+    },
+    {
+      "entry": 2463125,
+      "team": "New Coral FC",
+      "manager": "Hanzo GM"
     },
     {
       "entry": 238148,
