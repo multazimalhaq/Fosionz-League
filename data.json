@@ -3,7 +3,7 @@
     "id": 754072,
     "name": "Fosionz League",
     "season": "2026/27",
-    "lastUpdated": "2026-09-13T15:21:07.869Z"
+    "lastUpdated": "2026-09-13T18:16:29.952Z"
   },
   "events": [
     {
@@ -182,19 +182,14 @@
       "manager": "babar bener"
     },
     {
-      "entry": 1838776,
-      "team": "KING EMYU",
-      "manager": "Aep Muhaemin"
-    },
-    {
       "entry": 3633224,
       "team": "Pakuwon FC",
       "manager": "Jordan Nathaniel Ford"
     },
     {
-      "entry": 4656762,
-      "team": "MAMPRANK FC",
-      "manager": "Zaidan Izzatulhaq Aljundi"
+      "entry": 1838776,
+      "team": "KING EMYU",
+      "manager": "Aep Muhaemin"
     },
     {
       "entry": 3257881,
@@ -202,14 +197,19 @@
       "manager": "Shidiq Muhammad"
     },
     {
-      "entry": 3623791,
-      "team": "Metropolitan United",
-      "manager": "Shiba Inu"
+      "entry": 4656762,
+      "team": "MAMPRANK FC",
+      "manager": "Zaidan Izzatulhaq Aljundi"
     },
     {
       "entry": 238148,
       "team": "Jangan dilihat",
       "manager": "faris azim"
+    },
+    {
+      "entry": 3623791,
+      "team": "Metropolitan United",
+      "manager": "Shiba Inu"
     },
     {
       "entry": 83181,
@@ -227,19 +227,14 @@
       "manager": "Multazim Alhaq"
     },
     {
-      "entry": 117245,
-      "team": "PUNDIDUDEDOT",
-      "manager": "Hanif Kasyfillah"
-    },
-    {
       "entry": 6797821,
       "team": "SAKIP FC",
       "manager": "Muhammad Tsaqif Fikry"
     },
     {
-      "entry": 3623417,
-      "team": "Kasreng Beu",
-      "manager": "Syu'bah Ishmatullah"
+      "entry": 117245,
+      "team": "PUNDIDUDEDOT",
+      "manager": "Hanif Kasyfillah"
     },
     {
       "entry": 3625306,
@@ -250,6 +245,11 @@
       "entry": 2463125,
       "team": "New Coral FC",
       "manager": "Hanzo GM"
+    },
+    {
+      "entry": 3623417,
+      "team": "Kasreng Beu",
+      "manager": "Syu'bah Ishmatullah"
     },
     {
       "entry": 3631190,
