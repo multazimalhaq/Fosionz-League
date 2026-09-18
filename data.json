@@ -3,7 +3,7 @@
     "id": 754072,
     "name": "Fosionz League",
     "season": "2026/27",
-    "lastUpdated": "2026-09-18T18:25:20.452Z"
+    "lastUpdated": "2026-09-18T21:03:54.692Z"
   },
   "events": [
     {
@@ -178,19 +178,19 @@
       "manager": "i Lupi"
     },
     {
-      "entry": 3633224,
-      "team": "Pakuwon FC",
-      "manager": "Jordan Nathaniel Ford"
-    },
-    {
       "entry": 3623791,
       "team": "Metropolitan United",
       "manager": "Shiba Inu"
     },
     {
-      "entry": 46579,
-      "team": "Summarecon City",
-      "manager": "babar bener"
+      "entry": 3633224,
+      "team": "Pakuwon FC",
+      "manager": "Jordan Nathaniel Ford"
+    },
+    {
+      "entry": 4656762,
+      "team": "MAMPRANK FC",
+      "manager": "Zaidan Izzatulhaq Aljundi"
     },
     {
       "entry": 1838776,
@@ -198,9 +198,14 @@
       "manager": "Aep Muhaemin"
     },
     {
-      "entry": 4656762,
-      "team": "MAMPRANK FC",
-      "manager": "Zaidan Izzatulhaq Aljundi"
+      "entry": 46579,
+      "team": "Summarecon City",
+      "manager": "babar bener"
+    },
+    {
+      "entry": 83181,
+      "team": "FPL Modal Firasat",
+      "manager": "Hassan Musthafa"
     },
     {
       "entry": 3257881,
@@ -213,9 +218,9 @@
       "manager": "Akid Abdussalam"
     },
     {
-      "entry": 83181,
-      "team": "FPL Modal Firasat",
-      "manager": "Hassan Musthafa"
+      "entry": 238148,
+      "team": "Jangan dilihat",
+      "manager": "faris azim"
     },
     {
       "entry": 3623867,
@@ -223,9 +228,9 @@
       "manager": "Multazim Alhaq"
     },
     {
-      "entry": 238148,
-      "team": "Jangan dilihat",
-      "manager": "faris azim"
+      "entry": 2463125,
+      "team": "New Coral FC",
+      "manager": "Hanzo GM"
     },
     {
       "entry": 3625306,
@@ -241,11 +246,6 @@
       "entry": 117245,
       "team": "PUNDIDUDEDOT",
       "manager": "Hanif Kasyfillah"
-    },
-    {
-      "entry": 2463125,
-      "team": "New Coral FC",
-      "manager": "Hanzo GM"
     },
     {
       "entry": 3623417,
