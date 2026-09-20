@@ -3,7 +3,7 @@
     "id": 754072,
     "name": "Fosionz League",
     "season": "2026/27",
-    "lastUpdated": "2026-09-20T12:06:53.052Z"
+    "lastUpdated": "2026-09-20T16:01:01.234Z"
   },
   "events": [
     {
@@ -168,11 +168,6 @@
   ],
   "managers": [
     {
-      "entry": 85270,
-      "team": "POWER DANGER FC",
-      "manager": "Kas Hartadi"
-    },
-    {
       "entry": 132302,
       "team": "Levene Square",
       "manager": "i Lupi"
@@ -183,9 +178,9 @@
       "manager": "Jordan Nathaniel Ford"
     },
     {
-      "entry": 3623867,
-      "team": "Jimboy",
-      "manager": "Multazim Alhaq"
+      "entry": 85270,
+      "team": "POWER DANGER FC",
+      "manager": "Kas Hartadi"
     },
     {
       "entry": 3623791,
@@ -196,6 +191,21 @@
       "entry": 3257881,
       "team": "Title Rice",
       "manager": "Shidiq Muhammad"
+    },
+    {
+      "entry": 3623867,
+      "team": "Jimboy",
+      "manager": "Multazim Alhaq"
+    },
+    {
+      "entry": 4656762,
+      "team": "MAMPRANK FC",
+      "manager": "Zaidan Izzatulhaq Aljundi"
+    },
+    {
+      "entry": 46579,
+      "team": "Summarecon City",
+      "manager": "babar bener"
     },
     {
       "entry": 238148,
@@ -213,14 +223,9 @@
       "manager": "Akid Abdussalam"
     },
     {
-      "entry": 46579,
-      "team": "Summarecon City",
-      "manager": "babar bener"
-    },
-    {
-      "entry": 4656762,
-      "team": "MAMPRANK FC",
-      "manager": "Zaidan Izzatulhaq Aljundi"
+      "entry": 6797821,
+      "team": "SAKIP FC",
+      "manager": "Muhammad Tsaqif Fikry"
     },
     {
       "entry": 83181,
@@ -228,14 +233,9 @@
       "manager": "Hassan Musthafa"
     },
     {
-      "entry": 6797821,
-      "team": "SAKIP FC",
-      "manager": "Muhammad Tsaqif Fikry"
-    },
-    {
-      "entry": 117245,
-      "team": "PUNDIDUDEDOT",
-      "manager": "Hanif Kasyfillah"
+      "entry": 2463125,
+      "team": "New Coral FC",
+      "manager": "Hanzo GM"
     },
     {
       "entry": 3625306,
@@ -243,9 +243,9 @@
       "manager": "Fahrul Putra"
     },
     {
-      "entry": 2463125,
-      "team": "New Coral FC",
-      "manager": "Hanzo GM"
+      "entry": 117245,
+      "team": "PUNDIDUDEDOT",
+      "manager": "Hanif Kasyfillah"
     },
     {
       "entry": 3623417,
