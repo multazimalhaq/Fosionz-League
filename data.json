@@ -3,7 +3,7 @@
     "id": 754072,
     "name": "Fosionz League",
     "season": "2026/27",
-    "lastUpdated": "2026-10-13T03:52:26.879Z"
+    "lastUpdated": "2026-10-13T11:18:02.195Z"
   },
   "events": [
     {
@@ -209,6 +209,11 @@
       "manager": "babar bener"
     },
     {
+      "entry": 3623867,
+      "team": "Jimboy",
+      "manager": "Multazim Alhaq"
+    },
+    {
       "entry": 83181,
       "team": "FPL Modal Firasat",
       "manager": "Hassan Musthafa"
@@ -217,11 +222,6 @@
       "entry": 6797821,
       "team": "SAKIP FC",
       "manager": "Muhammad Tsaqif Fikry"
-    },
-    {
-      "entry": 3623867,
-      "team": "Jimboy",
-      "manager": "Multazim Alhaq"
     },
     {
       "entry": 4656762,
@@ -244,14 +244,14 @@
       "manager": "Fahrul Putra"
     },
     {
-      "entry": 2463125,
-      "team": "New Coral FC",
-      "manager": "Hanzo GM"
-    },
-    {
       "entry": 3623417,
       "team": "Kasreng Beu",
       "manager": "Syu'bah Ishmatullah"
+    },
+    {
+      "entry": 2463125,
+      "team": "New Coral FC",
+      "manager": "Hanzo GM"
     },
     {
       "entry": 3631190,
