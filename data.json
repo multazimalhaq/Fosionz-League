@@ -3,7 +3,7 @@
     "id": 754072,
     "name": "Fosionz League",
     "season": "2026/27",
-    "lastUpdated": "2026-11-24T02:59:02.800Z"
+    "lastUpdated": "2026-11-24T13:22:52.627Z"
   },
   "events": [
     {
@@ -204,24 +204,24 @@
       "manager": "i Lupi"
     },
     {
-      "entry": 3633224,
-      "team": "Pakuwon FC",
-      "manager": "Jordan Nathaniel Ford"
-    },
-    {
       "entry": 4656762,
       "team": "MAMPRANK FC",
       "manager": "Zaidan Izzatulhaq Aljundi"
     },
     {
-      "entry": 3204276,
-      "team": "La Fee Verte FC",
-      "manager": "Akid Abdussalam"
+      "entry": 3633224,
+      "team": "Pakuwon FC",
+      "manager": "Jordan Nathaniel Ford"
     },
     {
       "entry": 2463125,
       "team": "New Coral FC",
       "manager": "Hanzo GM"
+    },
+    {
+      "entry": 3204276,
+      "team": "La Fee Verte FC",
+      "manager": "Akid Abdussalam"
     },
     {
       "entry": 6797821,
@@ -315,7 +315,7 @@
       "8": 41,
       "9": 43,
       "10": 59,
-      "11": 29
+      "11": 31
     },
     "132302": {
       "1": 42,
@@ -367,7 +367,7 @@
       "8": 62,
       "9": 48,
       "10": 78,
-      "11": 44
+      "11": 45
     },
     "3204276": {
       "1": 51,
@@ -458,7 +458,7 @@
       "8": 51,
       "9": 39,
       "10": 45,
-      "11": 35
+      "11": 36
     },
     "3633224": {
       "1": 41,
@@ -484,7 +484,7 @@
       "8": 49,
       "9": 52,
       "10": 62,
-      "11": 41
+      "11": 47
     },
     "6797821": {
       "1": 45,
